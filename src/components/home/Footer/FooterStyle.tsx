@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
+let scroll: string = "35vh";
+// window.onscroll = () => {
+//   if (window.scrollY > 40) {
+//     scroll = "";
+//   }
+// };
 export const Div = styled.div`
+  margin-top: ${window.scrollY === 0 ? scroll : 0};
+
   .copy-right {
     background-color: #f2711c;
     text-align: center;
@@ -13,7 +21,7 @@ export const Footer = styled.div`
   background-color: #f2711c;
   color: #eee;
   /* background-color: #010024; */
-  margin-top: 10em;
+  /* margin-top: 10em; */
   padding: 3% 10%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 2fr;

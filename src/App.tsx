@@ -24,7 +24,9 @@ function App() {
     } else {
       setState(false);
     }
+    console.log(window.scrollY);
   };
+
 
   const handleScrollUp = () => {
     window.scrollTo(0, 0);

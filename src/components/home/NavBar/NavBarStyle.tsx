@@ -18,7 +18,7 @@ export const Nav = styled.nav`
     justify-content: space-evenly;
     padding: 0 2%;
 
-    input {
+    /* input {
       width: 0%;
       padding: 3% 2%;
       font-size: 1rem;
@@ -26,12 +26,12 @@ export const Nav = styled.nav`
       border-radius: 5px;
       box-shadow: 0 2px 15px #ddd;
       outline: none;
-    }
+    } */
   }
   @media (max-width: 600px) {
     padding: 0 2%;
 
-    input {
+    /* input {
       width: 0%;
       padding: 6% 3%;
       font-size: 1rem;
@@ -39,7 +39,7 @@ export const Nav = styled.nav`
       border-radius: 5px;
       box-shadow: 0 2px 15px #ddd;
       outline: none;
-    }
+    } */
   }
 
   .nav-logo {
@@ -49,10 +49,8 @@ export const Nav = styled.nav`
   .nav-list {
     input {
       width: 150%;
-      padding: 10% 5%;
-      font-size: 1rem;
-      border: 0.3px solid #ccc;
-      border-radius: 0.25em;
+      font-size: 1.3rem;
+      /* border: 0.3px solid #ccc; */
       box-shadow: 0 2px 15px #ddd;
       outline: none;
     }

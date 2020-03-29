@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
 import { Nav } from "./NavBarStyle";
 import { Link } from "react-router-dom";
-import { Menu, Icon, Label } from "semantic-ui-react";
+import { Menu, Icon, Label, Input, Dropdown } from "semantic-ui-react";
 import { getOrders } from "../../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
+
+const options = [
+  { key: "page", text: "All Category", value: "all" },
+  { key: "org", text: "Men Wear", value: "men" },
+  { key: "site", text: "Women Wear", value: "women" }
+];
 
 const NavBar = ({ state }: any) => {
   const dispatch = useDispatch();
@@ -32,7 +38,21 @@ const NavBar = ({ state }: any) => {
         </Link>
       </div>
       <div className='nav-list'>
-        <input type='text' placeholder='Search for a clothing...' />
+        {/* <input type='text' placeholder='Search for a clothing...' /> */}
+        <Input
+          action={
+            <Dropdown
+              button
+              basic
+              floating
+              options={options}
+              defaultValue='all'
+            />
+          }
+          icon='search'
+          iconPosition='left'
+          placeholder='Search...'
+        />
       </div>
       <div className='nav-cart'>
         {/* <p>
