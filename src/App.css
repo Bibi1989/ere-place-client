@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: #010024; */
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  padding: 2% 10%;
+}
+
+@media (max-width: 1100px) {
+  .App {
+    grid-template-columns: 30% 70%;
+    padding: 2%;
+  }
+}
+@media (max-width: 700px) {
+  .App {
+    grid-template-columns: 100%;
+    padding: 2% 3%;
+  }
+  .second-section-mobile {
+    grid-template-columns: 1fr;
+  }
+}
