@@ -14,7 +14,7 @@ const initialState = {
   products: [],
   product: {},
   order: {},
-  orders: [],
+  orders: 0,
   NoOfCarts: 0,
   delete_msg: 0,
   delete_wishlist: 0,
