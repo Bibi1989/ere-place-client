@@ -80,7 +80,7 @@ const ProductComponent = ({
                       </div>
                     </>
                   ) : (
-                    <div>No Products Yet</div>
+                    <div>No Products Available</div>
                   )}
                 </div>
               );
