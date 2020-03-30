@@ -5,11 +5,11 @@ import { Menu, Icon, Label, Input, Dropdown, Select } from "semantic-ui-react";
 import { getOrders, searchItems } from "../../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
 
-const options = [
-  { key: "page", text: "All Category", value: "all" },
-  { key: "org", text: "Men Wear", value: "men" },
-  { key: "site", text: "Women Wear", value: "women" }
-];
+// const options = [
+//   { key: "page", text: "All Category", value: "all" },
+//   { key: "org", text: "Men Wear", value: "men" },
+//   { key: "site", text: "Women Wear", value: "women" }
+// ];
 
 const NavBar = ({ state }: any) => {
   const dispatch = useDispatch();
@@ -61,15 +61,6 @@ const NavBar = ({ state }: any) => {
         {/* <input type='text' placeholder='Search for a clothing...' /> */}
         <Input
           onChange={handleInput}
-          action={
-            <Select
-              onChange={handleClick}
-              basic
-              floating
-              options={options}
-              defaultValue='all'
-            />
-          }
           icon='search'
           iconPosition='left'
           placeholder='Search...'
