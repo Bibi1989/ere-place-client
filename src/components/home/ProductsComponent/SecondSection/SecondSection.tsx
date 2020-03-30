@@ -25,6 +25,7 @@ const SecondSection = () => {
     ({ productReducer }: any) => productReducer.searchProducts
   );
   products = searched.length > 0 ? searched : products;
+  products = products.slice(0, 6);
 
   const handleSelect = (e: any) => {
     const sorted = [...products].reverse();
