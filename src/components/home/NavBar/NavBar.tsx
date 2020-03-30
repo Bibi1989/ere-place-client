@@ -14,7 +14,6 @@ import { useDispatch, useSelector } from "react-redux";
 const NavBar = ({ state }: any) => {
   const dispatch = useDispatch();
   const [searchText, setSearchText] = useState("");
-  const [searchCategory, setSearchCategory] = useState("");
   const cate: any = useRef();
   console.log(cate.current);
   const orderCount = useSelector(
@@ -39,17 +38,11 @@ const NavBar = ({ state }: any) => {
     setSearchText(e.target.value);
   };
 
-  const handleClick = (e: any) => {
-    setSearchCategory(e.target.textContent);
-    // searchItems(dispatch, searchText, searchCategory);
-  };
-
-  const data: any = { cate: searchCategory, search: searchText };
   useEffect(() => {
     getOrders(dispatch);
-  }, [NoOfCarts, deleteCart, deleteWishList, cate]);
+    searchItems(dispatch, searchText);
+  }, [NoOfCarts, deleteCart, deleteWishList, searchText]);
 
-  console.log();
   return (
     <Nav style={state ? { position: "sticky" } : {}} data-aos='zoom-in'>
       <div className='nav-logo'>

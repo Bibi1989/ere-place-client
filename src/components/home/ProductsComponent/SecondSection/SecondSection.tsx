@@ -15,11 +15,16 @@ const SecondSection = () => {
     getProducts(dispatch);
     // eslint-disable-next-line
   }, []);
-  const products =
+  let products =
     useSelector(({ productReducer }: any) => productReducer.products).slice(
       0,
       6
     ) || [];
+
+  const searched: any = useSelector(
+    ({ productReducer }: any) => productReducer.searchProducts
+  );
+  products = searched.length > 0 ? searched : products;
 
   const handleSelect = (e: any) => {
     const sorted = [...products].reverse();

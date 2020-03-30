@@ -41,25 +41,14 @@ const orderAction = (order: Products) => ({
   order
 });
 
-export const searchItems = async (
-  dispatch: any,
-  search: string,
-  cat: string
-) => {
+export const searchItems = async (dispatch: any, search: string) => {
+  console.log(search);
   const products: any = await axios.get(`${url}/api/products`);
-  let categorys = cat;
-  console.log(cat);
-  if (categorys == "All Category") {
-    const items: any = products.filter((product: any) =>
-      product.category.toLowerCase().includes(search.toLowerCase())
-    );
-    dispatch({ type: SEARCH, payload: items });
-  } else if (categorys === "Men Wear") {
-    const items: any = products.filter((product: any) =>
-      product.category.toLowerCase().includes(search.toLowerCase())
-    );
-    dispatch({ type: SEARCH, payload: items });
-  }
+  const items: any = products.data.products.filter((product: any) =>
+    product.title.toLowerCase().includes(search.toLowerCase())
+  );
+  console.log(items);
+  dispatch({ type: SEARCH, payload: items });
 };
 
 export const filteredProducts = async (dispatch: any, value: any) => {

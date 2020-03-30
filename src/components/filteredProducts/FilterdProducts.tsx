@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Icon, Popup, Grid, Header, Button } from "semantic-ui-react";
 import { Link, useParams } from "react-router-dom";
 import { Product, Div } from "./FilteredStyle";
-import { filteredProducts } from "../productReducer/actions";
+import { filteredProducts, searchItems } from "../productReducer/actions";
 import { useSelector, useDispatch } from "react-redux";
 import ProductNotAvailable from "./ProductNotAvailable";
 
@@ -13,10 +13,10 @@ const FilteredProducts = ({
   handleWishList
 }: any) => {
   const [state, setState] = useState(false);
-  const filtered: any = useSelector(
+  let filtered: any = useSelector(
     ({ productReducer }: any) => productReducer.filtered
   );
-  console.log(filtered.length);
+  
   const { ankara }: any = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
