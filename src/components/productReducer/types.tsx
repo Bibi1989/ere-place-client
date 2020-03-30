@@ -6,3 +6,5 @@ export const GET_ORDERS: string = "GET_ORDERS";
 export const SINGLE_PRODUCT: string = "SINGLE_PRODUCT";
 export const DELETE_ORDER: string = "DELETE_ORDER";
 export const DELETE_WISHLIST: string = "DELETE_WISHLIST";
+export const SEARCH: string = "SEARCH";
+export const FILTERED: string = "FILTERED";

@@ -10,6 +10,11 @@ export const SideComponent1 = () => {
         <Menu.Item as='h3' name='Browse Categories' style={style} />
       </Div>
       <Div>
+        <Link to='/' className='links'>
+          <Menu.Item name='Home' />
+        </Link>
+      </Div>
+      <Div>
         <Link to='/men' className='links'>
           <Menu.Item name='Men wears' />
         </Link>
@@ -45,22 +50,22 @@ export const SideComponent2 = () => {
         <Menu.Item as='h3' name='Type Of Wear' style={style} />
       </Div>
       <Div>
-        <Link to='/men' className='links'>
+        <Link to='/filtered/ankara' className='links'>
           <Menu.Item name='Ankara Native' />
         </Link>
       </Div>
       <Div>
-        <Link to='/men' className='links'>
-          <Menu.Item name='Native' />
+        <Link to='/filtered/senator' className='links'>
+          <Menu.Item name='Senator Wear' />
         </Link>
       </Div>
       <Div>
-        <Link className='links' to='/women'>
+        <Link className='links' to='/filtered/orlando'>
           <Menu.Item name='Orlando Native' />
         </Link>
       </Div>
       <Div>
-        <Link className='links' to='/women'>
+        <Link className='links' to='/filtered/english'>
           <Menu.Item name='English Wear' />
         </Link>
       </Div>

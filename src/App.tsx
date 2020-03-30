@@ -16,6 +16,12 @@ import CartComponent from "./components/orders/CartComponent";
 import WishList from "./components/wishlist/WishList";
 import FooterComponent from "./components/home/Footer/Footer";
 
+import {
+  useIntersectionObserver,
+  useTrackVisibility
+} from "react-intersection-observer-hook";
+import FilteredProducts from "./components/filteredProducts/FilterdProducts";
+
 function App() {
   const [state, setState] = useState(false);
   window.onscroll = () => {
@@ -24,9 +30,7 @@ function App() {
     } else {
       setState(false);
     }
-    console.log(window.scrollY);
   };
-
 
   const handleScrollUp = () => {
     window.scrollTo(0, 0);
@@ -60,6 +64,14 @@ function App() {
               </>
             </div>
             <TrySomething />
+          </Route>
+          <Route exact path='/filtered/:ankara'>
+            <div className='App'>
+              <>
+                <SideBar />
+                <FilteredProducts />
+              </>
+            </div>
           </Route>
           <Route exact path='/men'>
             <AllMen />

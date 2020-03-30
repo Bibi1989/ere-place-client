@@ -148,11 +148,11 @@ const SingleProduct = () => {
             <div className='second-section-overlay'>
               <div className='overlay-icons'>
                 <button
-                  style={
-                    check1
-                      ? { background: "lightgray", cursor: "not-allowed" }
-                      : {}
-                  }
+                  // style={
+                  //   check1
+                  //     ? { background: "lightgray", cursor: "not-allowed" }
+                  //     : {}
+                  // }
                   className='cart'
                   onClick={() => handleCart(product)}
                 >

@@ -1,22 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Icon, Popup, Grid, Header, Button } from "semantic-ui-react";
-import { Link } from "react-router-dom";
-import { Product, Div } from "./ProductStyle";
+import { Link, useParams } from "react-router-dom";
+import { Product, Div } from "./FilteredStyle";
+import { filteredProducts } from "../productReducer/actions";
+import { useSelector, useDispatch } from "react-redux";
+import ProductNotAvailable from "./ProductNotAvailable";
 
-const ProductComponent = ({
+const FilteredProducts = ({
   products,
   title,
   handleCart,
   handleWishList
 }: any) => {
   const [state, setState] = useState(false);
+  const filtered: any = useSelector(
+    ({ productReducer }: any) => productReducer.filtered
+  );
+  console.log(filtered.length);
+  const { ankara }: any = useParams();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    filteredProducts(dispatch, ankara);
+  }, [ankara]);
   return (
     <div>
       <Div>
-        <h1 data-aos='fade-left'>{title}</h1>
+        <h1 data-aos='fade-left'>
+          {filtered[0] !== undefined && filtered[0].title}
+        </h1>
         <Product className='second-section-mobile'>
-          {products !== undefined &&
-            products.map((product: any, i: number) => {
+          {filtered !== undefined &&
+            filtered.map((product: any, i: number) => {
               let b: any = [];
               let c: any = JSON.parse(product.image_url) || [];
               c.forEach((a: any) => {
@@ -29,7 +43,8 @@ const ProductComponent = ({
                   data-aos='fade-left'
                   data-aos-delay={(i + 1) * 100}
                 >
-                  {products.length > 0 ? (
+                  {filtered.length === 0 && <ProductNotAvailable />}
+                  {filtered.length >= 1 && (
                     <>
                       <div className='second-section-image'>
                         <img
@@ -112,8 +127,6 @@ const ProductComponent = ({
                         </div>
                       </div>
                     </>
-                  ) : (
-                    <div>No Products Available</div>
                   )}
                 </div>
               );
@@ -124,4 +137,4 @@ const ProductComponent = ({
   );
 };
 
-export default ProductComponent;
+export default FilteredProducts;

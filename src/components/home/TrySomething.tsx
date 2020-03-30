@@ -1,19 +1,29 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from "semantic-ui-react";
 import MenCategory from "./ProductsComponent/CategoryComponents/MenCategory/MenCategory";
 import WomenCategory from "./ProductsComponent/CategoryComponents/WomenCategory/WomenCategory";
+import { Link } from "react-router-dom";
 
 const TrySomething = () => {
   return (
     <>
       <Div data-aos='zoom-in'>
         <div className='overlay-section'>
-          <button>Men Wears</button>
-          <button>Women Wears</button>
+          <Button>
+            <Link className='link' to='/men'>
+              Men Wears
+            </Link>
+          </Button>
+          <Button>
+            <Link className='link' to='/women'>
+              Women Wears
+            </Link>
+          </Button>
         </div>
         <div className='text-section'>
           <h1>Free Delivery</h1>
-          <button>Buy From Store</button>
+          <Button>Buy From Store</Button>
         </div>
       </Div>
       <MenCategory />
@@ -59,6 +69,11 @@ const Div = styled.div`
       box-shadow: 0 2px 15px #22222286;
       outline: none;
       cursor: pointer;
+
+      .link {
+        text-decoration: none;
+        color: #eee;
+      }
     }
   }
 

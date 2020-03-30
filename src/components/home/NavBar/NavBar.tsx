@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Nav } from "./NavBarStyle";
 import { Link } from "react-router-dom";
-import { Menu, Icon, Label, Input, Dropdown } from "semantic-ui-react";
-import { getOrders } from "../../productReducer/actions";
+import { Menu, Icon, Label, Input, Dropdown, Select } from "semantic-ui-react";
+import { getOrders, searchItems } from "../../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const options = [
@@ -13,6 +13,10 @@ const options = [
 
 const NavBar = ({ state }: any) => {
   const dispatch = useDispatch();
+  const [searchText, setSearchText] = useState("");
+  const [searchCategory, setSearchCategory] = useState("");
+  const cate: any = useRef();
+  console.log(cate.current);
   const orderCount = useSelector(
     ({ productReducer }: any) => productReducer.orders
   );
@@ -25,11 +29,27 @@ const NavBar = ({ state }: any) => {
   const deleteWishList = useSelector(
     ({ productReducer }: any) => productReducer.delete_wishlist
   );
+  const searchP = useSelector(
+    ({ productReducer }: any) => productReducer.searchProducts
+  );
   const wishlist: any = localStorage.getItem("wishlist");
+  console.log(searchP);
 
+  const handleInput = (e: any) => {
+    setSearchText(e.target.value);
+  };
+
+  const handleClick = (e: any) => {
+    setSearchCategory(e.target.textContent);
+    // searchItems(dispatch, searchText, searchCategory);
+  };
+
+  const data: any = { cate: searchCategory, search: searchText };
   useEffect(() => {
     getOrders(dispatch);
-  }, [NoOfCarts, deleteCart, deleteWishList]);
+  }, [NoOfCarts, deleteCart, deleteWishList, cate]);
+
+  console.log();
   return (
     <Nav style={state ? { position: "sticky" } : {}} data-aos='zoom-in'>
       <div className='nav-logo'>
@@ -40,9 +60,10 @@ const NavBar = ({ state }: any) => {
       <div className='nav-list'>
         {/* <input type='text' placeholder='Search for a clothing...' /> */}
         <Input
+          onChange={handleInput}
           action={
-            <Dropdown
-              button
+            <Select
+              onChange={handleClick}
               basic
               floating
               options={options}

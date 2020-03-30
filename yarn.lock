@@ -8730,6 +8730,11 @@ react-input-autosize@^2.2.2:
   dependencies:
     prop-types "^15.5.8"
 
+react-intersection-observer-hook@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer-hook/-/react-intersection-observer-hook-1.0.4.tgz#6dc59e982a7b73c4acc3a446e375769c4d359650"
+  integrity sha512-8Bll+mgiLIxk1uwpTsS2V0FZYWTubmNu0HQQbz1dGQ+WJBUg7rl8CZbEw/SqEQFeghU7zo+Z91K/O4FaTmqD0A==
+
 react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.6, react-is@^16.9.0:
   version "16.13.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527"

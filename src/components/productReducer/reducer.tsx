@@ -6,7 +6,9 @@ import {
   SINGLE_PRODUCT,
   GET_ORDERS,
   DELETE_ORDER,
-  DELETE_WISHLIST
+  DELETE_WISHLIST,
+  SEARCH,
+  FILTERED
 } from "./types";
 // import { Products } from "./interfaces";
 
@@ -18,7 +20,9 @@ const initialState = {
   NoOfCarts: 0,
   delete_msg: 0,
   delete_wishlist: 0,
-  tracker: false
+  tracker: false,
+  searchProducts: [],
+  filtered: []
 };
 
 export default (state = initialState, action: any) => {
@@ -64,6 +68,16 @@ export default (state = initialState, action: any) => {
       return {
         ...state,
         delete_wishlist: action.payload
+      };
+    case SEARCH:
+      return {
+        ...state,
+        searchProducts: action.payload
+      };
+    case FILTERED:
+      return {
+        ...state,
+        filtered: action.payload
       };
     default:
       return state;

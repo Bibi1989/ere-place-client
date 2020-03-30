@@ -1,13 +1,7 @@
 import styled from "styled-components";
 
-let scroll: string = "35vh";
-// window.onscroll = () => {
-//   if (window.scrollY > 40) {
-//     scroll = "";
-//   }
-// };
 export const Div = styled.div`
-  margin-top: ${window.scrollY === 0 ? scroll : 0};
+  margin-top: 0;
 
   .copy-right {
     background-color: #f2711c;

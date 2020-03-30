@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Table, Header, Button, Icon } from "semantic-ui-react";
 import { Div } from "./CartComponentStyle";
-import { getOrders, deleteOrder } from "../productReducer/actions";
+import { deleteOrder } from "../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const CartComponent = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const order: any = localStorage.getItem("fashion");
   let orders: any = JSON.parse(order) || [];
   console.log(orders);
@@ -25,9 +26,18 @@ const CartComponent = () => {
     localStorage.setItem("fashion", JSON.stringify(orders));
     deleteOrder(dispatch, id, orders.length);
   };
+
+  const continueShopping = () => {
+    history.goBack();
+  };
   return (
     <Div data-aos='fade-left'>
       <h1>Your Cart</h1>
+      <Button
+        content='Continue Shopping'
+        color='orange'
+        onClick={continueShopping}
+      ></Button>
       <Table celled padded>
         <Table.Header>
           <Table.Row>

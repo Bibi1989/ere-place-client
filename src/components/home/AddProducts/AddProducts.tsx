@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Button, Form } from "semantic-ui-react";
+// import Select from "react-select";
 import { Div } from "./AddProductStyle";
 import dotenv from "dotenv";
 
@@ -7,6 +9,60 @@ dotenv.config();
 
 const upload_preset: any = process.env.REACT_APP_UPLOAD_PRESET;
 const cloud_base_name: any = process.env.REACT_APP_CLOUDINARY_BASE_URL;
+// const states: any = []
+const states: any = [
+  "Abia",
+  "Adamawa",
+  "Akwa Ibom",
+  "Anambra",
+  "Bauchi",
+  "Bayelsa",
+  "Benue",
+  "Borno",
+  "Cross River",
+  "Delta",
+  "Ebonyi",
+  "Edo",
+  "Ekiti",
+  "Enugu",
+  "FCT - Abuja",
+  "Gombe",
+  "Imo",
+  "Jigawa",
+  "Kaduna",
+  "Kano",
+  "Katsina",
+  "Kebbi",
+  "Kogi",
+  "Kwara",
+  "Lagos",
+  "Nasarawa",
+  "Niger",
+  "Ogun",
+  "Ondo",
+  "Osun",
+  "Oyo",
+  "Plateau",
+  "Rivers",
+  "Sokoto",
+  "Taraba",
+  "Yobe",
+  "Zamfara"
+].map(state => {
+  return {
+    key: state.slice(0, 3),
+    text: state,
+    value: state
+  };
+});
+
+const sizes: any = [32, 34, 36, 38, 40, 42, 44, 46].map(size => {
+  return {
+    key: size,
+    text: size,
+    value: size
+  };
+});
 
 const AddProducts = () => {
   const [imageUrl, setImageUrl] = React.useState<any[]>([]);
@@ -20,6 +76,11 @@ const AddProducts = () => {
     location: "",
     stock: ""
   });
+  const [select, setSelect] = useState({
+    location: "",
+    size: ""
+  });
+  useEffect(() => {});
   let d: any = [];
   const hancha = (e: any) => {
     const data = new FormData();
@@ -46,6 +107,11 @@ const AddProducts = () => {
       [e.target.name]: e.target.value
     });
   };
+
+  const handleSelect = (e: any) => {
+    setSelect({ ...select, location: e.target.textContent });
+  };
+  console.log(select);
   const postProduct = async (body: any) => {
     await axios.post(`https://ere-place-api.herokuapp.com/api/products`, body, {
       headers: {
@@ -59,6 +125,7 @@ const AddProducts = () => {
     let image = JSON.stringify(imageUrl);
     const data = {
       ...form,
+      ...select,
       image_url: image
     };
     postProduct(data);
@@ -66,7 +133,7 @@ const AddProducts = () => {
 
   return (
     <Div>
-      <form onSubmit={onsubmit}>
+      {/* <form onSubmit={onsubmit}>
         <input
           type='text'
           name='title'
@@ -113,9 +180,99 @@ const AddProducts = () => {
         {imageUrl.length !== 0 && showButton && (
           <button type='submit'>Submit</button>
         )}
-      </form>
+      </form> */}
+      <AddProductForm
+        handleInput={handleInput}
+        handleSelect={handleSelect}
+        hancha={hancha}
+        imageUrl={imageUrl}
+        showButton={showButton}
+        onsubmit={onsubmit}
+      />
     </Div>
   );
 };
 
 export default AddProducts;
+
+const AddProductForm = ({
+  handleInput,
+  handleSelect,
+  hancha,
+  imageUrl,
+  showButton,
+  onsubmit
+}: any) => (
+  <Form onSubmit={onsubmit} style={{ padding: "3% 10%" }}>
+    <Form.Group unstackable widths={2}>
+      <Form.Input
+        name='title'
+        label='Product Title'
+        placeholder='Product Title'
+        onChange={handleInput}
+      />
+      <Form.Input
+        name='category'
+        label='Product Category'
+        placeholder='Product Category'
+        onChange={handleInput}
+      />
+    </Form.Group>
+    <Form.Group unstackable widths={2}>
+      <Form.Input
+        name='category_type'
+        label='Category Type'
+        placeholder='Category Type'
+        onChange={handleInput}
+      />
+      <Form.Input
+        name='description'
+        label='Description'
+        placeholder='Description'
+        onChange={handleInput}
+      />
+    </Form.Group>
+    <Form.Group widths={2}>
+      <Form.Input
+        name='price'
+        label='Price'
+        placeholder='Price'
+        onChange={handleInput}
+      />
+      <Form.Select
+        name='location'
+        label='Location'
+        options={states}
+        onChange={handleSelect}
+      />
+    </Form.Group>
+    <Form.Group widths={2}>
+      <Form.Input
+        name='stock'
+        label='Stock'
+        placeholder='Stock'
+        onChange={handleInput}
+      />
+      <Form.Select label='Size' options={sizes} onChange={handleSelect} />
+    </Form.Group>
+    <Form.Group widths={2}>
+      <Form.Input
+        name='file'
+        type='file'
+        label='Images'
+        placeholder='File'
+        onChange={hancha}
+      />
+      <Form.Input
+        name='age_to'
+        type='number'
+        label='Age Range'
+        placeholder='Age Range'
+        onChange={handleInput}
+      />
+    </Form.Group>
+    {imageUrl.length !== 0 && showButton && (
+      <Button type='submit'>Submit</Button>
+    )}
+  </Form>
+);

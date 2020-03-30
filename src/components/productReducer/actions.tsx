@@ -6,7 +6,9 @@ import {
   SINGLE_PRODUCT,
   GET_ORDERS,
   DELETE_ORDER,
-  DELETE_WISHLIST
+  DELETE_WISHLIST,
+  SEARCH,
+  FILTERED
 } from "./types";
 // import { GetProducts, ActionType } from "./interfaces";
 import axios from "axios";
@@ -38,6 +40,42 @@ const orderAction = (order: Products) => ({
   type: ADD_ORDER,
   order
 });
+
+export const searchItems = async (
+  dispatch: any,
+  search: string,
+  cat: string
+) => {
+  const products: any = await axios.get(`${url}/api/products`);
+  let categorys = cat;
+  console.log(cat);
+  if (categorys == "All Category") {
+    const items: any = products.filter((product: any) =>
+      product.category.toLowerCase().includes(search.toLowerCase())
+    );
+    dispatch({ type: SEARCH, payload: items });
+  } else if (categorys === "Men Wear") {
+    const items: any = products.filter((product: any) =>
+      product.category.toLowerCase().includes(search.toLowerCase())
+    );
+    dispatch({ type: SEARCH, payload: items });
+  }
+};
+
+export const filteredProducts = async (dispatch: any, value: any) => {
+  console.log(value);
+  const products: any = await axios.get(`${url}/api/products`);
+  // const check = products.data.products.filter((product: any) => {});
+  const filtered = products.data.products.filter((product: any) => {
+    if (
+      product.title.split(" ").some((va: string) => va.toLowerCase() === value)
+    ) {
+      return product;
+    }
+  });
+  console.log(products.data.products);
+  dispatch({ type: FILTERED, payload: filtered });
+};
 
 export const getProducts = async (dispatch: any) => {
   const products = await axios.get(`${url}/api/products`);
