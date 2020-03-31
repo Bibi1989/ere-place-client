@@ -55,17 +55,21 @@ const NavBar = ({ state }: any) => {
         className='nav-cart'
         style={
           show
-            ? { position: "absolute" }
-            : { position: "absolute", top: "-100vh" }
+            ? { position: "absolute", transition: "left 0.7s ease-in-out" }
+            : {
+                position: "absolute",
+                left: "-100%",
+                transition: "left 0.7s ease-in-out"
+              }
         }
       >
-        {show && (
+        {/* {show && (
           <MobileView
             handleInput={handleInput}
             wishlist={wishlist}
             orderCount={orderCount}
           />
-        )}
+        )} */}
         <div className='nav-list'>
           <Input
             onChange={handleInput}
