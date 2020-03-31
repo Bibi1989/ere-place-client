@@ -21,10 +21,9 @@ export const Nav = styled.nav`
     padding: 0 2%;
 
     input {
-      display: none;
       font-size: 1.3rem;
       /* border: 0.3px solid #ccc; */
-      box-shadow: 0 2px 15px #ddd;
+      box-shadow: 0;
       outline: none;
     }
 
@@ -39,8 +38,16 @@ export const Nav = styled.nav`
       width: 100%;
       z-index: 20;
 
-      button {
+      .login,
+      .register,
+      .wish {
         margin: 10px 0;
+      }
+
+      .wish {
+        width: 60px;
+        display: flex;
+        justify-content: center;
       }
     }
   }
@@ -52,8 +59,6 @@ export const Nav = styled.nav`
   .nav-list {
     input {
       font-size: 1.3rem;
-      /* border: 0.3px solid #ccc; */
-      box-shadow: 0 2px 15px #ddd;
       outline: none;
     }
   }
@@ -73,7 +78,7 @@ export const Nav = styled.nav`
       box-shadow: 0 2px 15px #eee;
       /* background: orange; */
   }
-  */ .login,
+  .login,
   .register {
     color: #555;
     font-size: 1.2rem;

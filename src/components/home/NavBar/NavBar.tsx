@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Menu, Icon, Label, Input, Button } from "semantic-ui-react";
 import { getOrders, searchItems } from "../../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
+import MobileView from "./MobileView";
 
 // const options = [
 //   { key: "page", text: "All Category", value: "all" },
@@ -14,8 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 const NavBar = ({ state }: any) => {
   const dispatch = useDispatch();
   const [searchText, setSearchText] = useState("");
-  const cate: any = useRef();
-  console.log(cate.current);
+  const [show, setShow] = useState(false);
   const orderCount = useSelector(
     ({ productReducer }: any) => productReducer.orders
   );
@@ -50,9 +50,23 @@ const NavBar = ({ state }: any) => {
           <h2>Ere Place</h2>
         </Link>
       </div>
-      <div className='nav-cart'>
+      <Button onClick={() => setShow(!show)}>Menu</Button>
+      <div
+        className='nav-cart'
+        style={
+          show
+            ? { position: "absolute" }
+            : { position: "absolute", top: "-100vh" }
+        }
+      >
+        {show && (
+          <MobileView
+            handleInput={handleInput}
+            wishlist={wishlist}
+            orderCount={orderCount}
+          />
+        )}
         <div className='nav-list'>
-          {/* <input type='text' placeholder='Search for a clothing...' /> */}
           <Input
             onChange={handleInput}
             icon='search'
@@ -60,11 +74,7 @@ const NavBar = ({ state }: any) => {
             placeholder='Search...'
           />
         </div>
-        {/* <p>
-          <i className='fas fa-heart'></i>
-          {JSON.parse(wishlist) === null ? 0 : JSON.parse(wishlist).length}
-        </p> */}
-        <Menu compact>
+        <Menu compact className='wish'>
           <Menu.Item>
             <Link className='links' to='/wishlist'>
               <Icon name='heart' size='large' color='teal' />
@@ -76,7 +86,7 @@ const NavBar = ({ state }: any) => {
             </Link>
           </Menu.Item>
         </Menu>
-        <Menu compact style={{ margin: "0" }}>
+        <Menu compact style={{ margin: "0" }} className='wish'>
           <Menu.Item>
             <Link className='links' to='/cart'>
               <Icon name='shopping bag' size='large' color='orange' />
@@ -87,7 +97,6 @@ const NavBar = ({ state }: any) => {
             </Link>
           </Menu.Item>
         </Menu>
-        {/* </p> */}
         <Button className='login'>Login</Button>
         <Button className='register'>Register</Button>
       </div>
