@@ -28,8 +28,13 @@ export const Nav = styled.nav`
       outline: none;
     } */
   }
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     padding: 0 2%;
+
+    .nav-cart {
+      flex-direction: column;
+      margin-top: 80%;
+    }
 
     /* input {
       width: 0%;
