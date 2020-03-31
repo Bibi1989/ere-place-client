@@ -3,6 +3,14 @@ import styled from "styled-components";
 export const SingleView = styled.div`
   padding: 5% 20%;
 
+  @media (max-width: 700px) {
+    padding: 5% 5%;
+
+    .second-section-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .images {
     height: 20vh;
     width: 70%;
@@ -105,4 +113,8 @@ export const SingleView = styled.div`
 
 export const Div = styled.div`
   padding: 5% 10%;
+
+  @media (max-width: 700px) {
+    padding: 3%;
+  }
 `;
