@@ -1,13 +1,21 @@
 import styled from "styled-components";
 
 export const Image = styled.div`
-  @media (max-width: 1000px) {
-    padding: 0% 1% 3% 2%;
-  }
   .first-section-image {
+    height: 70vh;
     img {
       width: 100%;
-      height: 70vh;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 660px) {
+    .first-section-image {
+      height: 40vh;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 `;

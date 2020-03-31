@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 import { Provider } from "react-redux";
+import styled from "styled-components";
 import store from "./redux/store";
 import "./App.css";
 import NavBar from "./components/home/NavBar/NavBar";
@@ -57,21 +58,17 @@ function App() {
         )}
         <Switch>
           <Route exact path='/'>
-            <div className='App'>
-              <>
-                <SideBar />
-                <ProductSection />
-              </>
-            </div>
+            <Div>
+              <SideBar />
+              <ProductSection />
+            </Div>
             <TrySomething />
           </Route>
           <Route exact path='/filtered/:ankara'>
-            <div className='App'>
-              <>
-                <SideBar />
-                <FilteredProducts />
-              </>
-            </div>
+            <Div>
+              <SideBar />
+              <FilteredProducts />
+            </Div>
           </Route>
           <Route exact path='/men'>
             <AllMen />
@@ -99,3 +96,24 @@ function App() {
 }
 
 export default App;
+
+const Div = styled.div`
+  padding: 2% 10%;
+  display: grid;
+  grid-template-columns: 25% 75%;
+
+  @media (max-width: 1200px) {
+    padding: 2% 5%;
+  }
+  @media (max-width: 900px) {
+    padding: 2% 5%;
+  }
+  @media (max-width: 700px) {
+    padding: 2% 5%;
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: 500px) {
+    padding: 2% 15px;
+    grid-template-columns: 1fr;
+  }
+`;
