@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const Div = styled.div`
   padding: 0% 15%;
+
+  @media (max-width: 600px) {
+    padding: 2% 5%;
+  }
   h1 {
     font-size: 3rem;
     color: #555;

@@ -6,7 +6,6 @@ import * as serviceWorker from "./serviceWorker";
 import AOS from "aos";
 
 AOS.init({
-  offset: 100,
   duration: 1000,
   easing: "ease-out-cubic",
   delay: 200,

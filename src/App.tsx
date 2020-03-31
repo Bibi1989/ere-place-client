@@ -41,7 +41,6 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <NavBar state={state} />
         {state && (
           <Button
             data-aos='zoom-in'
@@ -51,6 +50,7 @@ function App() {
             onClick={handleScrollUp}
           />
         )}
+        <NavBar state={state} />
         <Switch>
           <Route exact path='/'>
             <Div>

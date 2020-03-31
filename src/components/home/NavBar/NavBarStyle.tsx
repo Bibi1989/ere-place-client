@@ -3,16 +3,15 @@ import styled from "styled-components";
 export const Nav = styled.nav`
   background: #fff;
   /* background-color: #010024; */
-  max-height: 10vh;
+  height: 10vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 9%;
+  padding: 0 10%;
   box-shadow: 0px 2px 25px #ddd;
-  position: -webkit-sticky;
   top: 0;
-  z-index: 20;
+  z-index: 30;
 
   @media (max-width: 1100px) {
     justify-content: space-evenly;
@@ -30,8 +29,19 @@ export const Nav = styled.nav`
     }
 
     .nav-cart {
+      position: absolute;
+      top: 10vh;
+      left: 0;
+      right: 0;
       flex-direction: column;
-      margin-top: 80%;
+      background-color: #010024;
+      padding: 3% 10%;
+      width: 100%;
+      z-index: 20;
+
+      button {
+        margin: 10px 0;
+      }
     }
   }
 

@@ -44,7 +44,7 @@ const NavBar = ({ state }: any) => {
   }, [NoOfCarts, deleteCart, deleteWishList, searchText]);
 
   return (
-    <Nav style={state ? { position: "sticky" } : {}} data-aos='zoom-in'>
+    <Nav style={state ? { position: "sticky" } : {}}>
       <div className='nav-logo'>
         <Link to='/'>
           <h2>Ere Place</h2>
