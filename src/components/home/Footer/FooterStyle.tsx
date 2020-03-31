@@ -25,6 +25,19 @@ export const Footer = styled.div`
   }
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
+
+    .social-icons {
+      flex-direction: column;
+    }
+
+    .suscribe {
+      display: none;
+      margin-top: 1em;
+
+      input {
+        width: 0;
+      }
+    }
   }
 
   .customer {
