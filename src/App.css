@@ -28,4 +28,8 @@ body {
   .second-section-mobile {
     display: none;
   }
+
+  .second-section-card {
+    grid-template-columns: 1fr;
+  }
 }
