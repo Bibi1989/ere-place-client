@@ -53,7 +53,6 @@ export const Nav = styled.nav`
 
   .nav-list {
     input {
-      width: 150%;
       font-size: 1.3rem;
       /* border: 0.3px solid #ccc; */
       box-shadow: 0 2px 15px #ddd;
