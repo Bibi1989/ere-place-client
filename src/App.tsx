@@ -16,11 +16,6 @@ import AllWomen from "./components/home/ProductsComponent/CategoryComponents/All
 import CartComponent from "./components/orders/CartComponent";
 import WishList from "./components/wishlist/WishList";
 import FooterComponent from "./components/home/Footer/Footer";
-
-import {
-  useIntersectionObserver,
-  useTrackVisibility
-} from "react-intersection-observer-hook";
 import FilteredProducts from "./components/filteredProducts/FilterdProducts";
 
 function App() {

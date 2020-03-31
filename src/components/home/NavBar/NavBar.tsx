@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Nav } from "./NavBarStyle";
 import { Link } from "react-router-dom";
-import { Menu, Icon, Label, Input, Dropdown, Select } from "semantic-ui-react";
+import { Menu, Icon, Label, Input, Button } from "semantic-ui-react";
 import { getOrders, searchItems } from "../../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -50,21 +50,21 @@ const NavBar = ({ state }: any) => {
           <h2>Ere Place</h2>
         </Link>
       </div>
-      <div className='nav-list'>
-        {/* <input type='text' placeholder='Search for a clothing...' /> */}
-        <Input
-          onChange={handleInput}
-          icon='search'
-          iconPosition='left'
-          placeholder='Search...'
-        />
-      </div>
       <div className='nav-cart'>
+        <div className='nav-list'>
+          {/* <input type='text' placeholder='Search for a clothing...' /> */}
+          <Input
+            onChange={handleInput}
+            icon='search'
+            iconPosition='left'
+            placeholder='Search...'
+          />
+        </div>
         {/* <p>
           <i className='fas fa-heart'></i>
           {JSON.parse(wishlist) === null ? 0 : JSON.parse(wishlist).length}
         </p> */}
-        <Menu compact style={{ marginRight: "1em !important" }}>
+        <Menu compact>
           <Menu.Item>
             <Link className='links' to='/wishlist'>
               <Icon name='heart' size='large' color='teal' />
@@ -76,7 +76,7 @@ const NavBar = ({ state }: any) => {
             </Link>
           </Menu.Item>
         </Menu>
-        <Menu compact>
+        <Menu compact style={{ margin: "0" }}>
           <Menu.Item>
             <Link className='links' to='/cart'>
               <Icon name='shopping bag' size='large' color='orange' />
@@ -88,8 +88,8 @@ const NavBar = ({ state }: any) => {
           </Menu.Item>
         </Menu>
         {/* </p> */}
-        <p className='login'>Login</p>
-        <p className='register'>Register</p>
+        <Button className='login'>Login</Button>
+        <Button className='register'>Register</Button>
       </div>
     </Nav>
   );
