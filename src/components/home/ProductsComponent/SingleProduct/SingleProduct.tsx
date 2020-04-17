@@ -7,7 +7,7 @@ import {
   getSingleProduct,
   getProducts,
   addOrder,
-  addWishList
+  addWishList,
 } from "../../../productReducer/actions";
 import ProductComponent from "../../../products/ProductComponent";
 
@@ -87,6 +87,7 @@ const SingleProduct = () => {
   return (
     <>
       <SingleView data-aos='fade-left'>
+        <h1>{product !== undefined && product.title}</h1>
         <div className='second-section-card'>
           <div className='second-section-image'>
             {
@@ -138,7 +139,7 @@ const SingleProduct = () => {
                   border: "1px solid teal",
                   padding: "0.2em 0.5em",
                   borderRadius: "50%",
-                  marginLeft: "0.5em"
+                  marginLeft: "0.5em",
                 }}
               >
                 {" " + product !== undefined && product.stock}
@@ -187,7 +188,7 @@ const SingleProduct = () => {
                   <img
                     src={img}
                     style={{
-                      opacity: `${active == i ? "1" : "0.6"}`
+                      opacity: `${active == i ? "1" : "0.6"}`,
                     }}
                     onClick={() => {
                       setActive(i);

@@ -3,11 +3,23 @@ import styled from "styled-components";
 export const SingleView = styled.div`
   padding: 5% 20%;
 
+  h1 {
+    font-size: 3em;
+    padding-bottom: 1em;
+    color: #555;
+  }
+
   @media (max-width: 1100px) {
     padding: 5% 5%;
   }
   @media (max-width: 700px) {
     padding: 5% 1em;
+
+    h1 {
+      font-size: 2em;
+      padding-bottom: 1em;
+      color: #555;
+    }
 
     .images {
       width: 416px;
