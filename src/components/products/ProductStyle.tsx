@@ -54,7 +54,7 @@ export const Product = styled.div`
     }
 
     .second-section-image {
-      max-height: 300px;
+      /* max-height: 300px; */
       width: 100%;
       position: relative;
       border: 1px solid #ddd;

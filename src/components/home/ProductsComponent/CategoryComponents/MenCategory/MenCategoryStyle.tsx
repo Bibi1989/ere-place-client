@@ -11,6 +11,9 @@ export const Div = styled.div`
   }
   @media (max-width: 700px) {
     padding: 2% 1em;
+    button {
+      margin-top: 15%;
+    }
   }
 
   h1 {

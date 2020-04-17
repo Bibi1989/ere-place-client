@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
   background: whitesmoke;
+  width: 100%;
   position: fixed;
   z-index: 78;
+  max-height: 8vh;
+  min-height: 8vh;
 
   .mobile {
     position: fixed;
@@ -33,7 +35,6 @@ export const Nav = styled.nav`
   display: grid;
   grid-template-columns: 20% 70% 10%;
   border-bottom: 0.5px solid #eee;
-  top: 0;
 
   @media (max-width: 800px) {
     max-width: 90%;
@@ -120,10 +121,12 @@ export const BurgerMenu = styled.div`
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-end;
+
   div {
     width: 45px;
     height: 5px;
-    margin: 5px;
+    margin: 3px;
     background: #555;
     border-radius: 5px;
   }

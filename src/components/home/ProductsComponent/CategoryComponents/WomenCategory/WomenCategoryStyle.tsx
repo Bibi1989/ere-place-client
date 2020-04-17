@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  padding: 0% 15%;
+  padding: 2% 15%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,12 @@ export const Div = styled.div`
   }
   @media (max-width: 700px) {
     padding: 2% 1em;
+
+    button {
+      margin-top: 20%;
+    }
   }
+
   h1 {
     font-size: 3rem;
     color: #555;

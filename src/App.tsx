@@ -36,7 +36,7 @@ function App() {
     position: "fixed",
     bottom: "20px",
     right: "20px",
-    zIndex: "30"
+    zIndex: "30",
   };
   return (
     <Provider store={store}>
@@ -51,39 +51,41 @@ function App() {
           />
         )}
         <NavBar state={state} />
-        <Switch>
-          <Route exact path='/'>
-            <Div>
-              <SideBar />
-              <ProductSection />
-            </Div>
-            <TrySomething />
-          </Route>
-          <Route exact path='/filtered/:ankara'>
-            <Div>
-              <SideBar />
-              <FilteredProducts />
-            </Div>
-          </Route>
-          <Route exact path='/men'>
-            <AllMen />
-          </Route>
-          <Route exact path='/women'>
-            <AllWomen />
-          </Route>
-          <Route exact path='/cart'>
-            <CartComponent />
-          </Route>
-          <Route exact path='/wishlist'>
-            <WishList />
-          </Route>
-          <Route exact path='/single/:singleId'>
-            <SingleProduct />
-          </Route>
-          <Route exact path='/show'>
-            <AddProducts />
-          </Route>
-        </Switch>
+        <Wrapper>
+          <Switch>
+            <Route exact path='/'>
+              <Div>
+                <SideBar />
+                <ProductSection />
+              </Div>
+              <TrySomething />
+            </Route>
+            <Route exact path='/filtered/:ankara'>
+              <Div>
+                <SideBar />
+                <FilteredProducts />
+              </Div>
+            </Route>
+            <Route exact path='/men'>
+              <AllMen />
+            </Route>
+            <Route exact path='/women'>
+              <AllWomen />
+            </Route>
+            <Route exact path='/cart'>
+              <CartComponent />
+            </Route>
+            <Route exact path='/wishlist'>
+              <WishList />
+            </Route>
+            <Route exact path='/single/:singleId'>
+              <SingleProduct />
+            </Route>
+            <Route exact path='/show'>
+              <AddProducts />
+            </Route>
+          </Switch>
+        </Wrapper>
         <FooterComponent />
       </Router>
     </Provider>
@@ -91,6 +93,10 @@ function App() {
 }
 
 export default App;
+
+const Wrapper = styled.div`
+  padding-top: 8vh;
+`;
 
 const Div = styled.div`
   padding: 2% 10%;
@@ -101,10 +107,10 @@ const Div = styled.div`
     padding: 2% 5%;
   }
   @media (max-width: 900px) {
-    padding: 2% 5%;
+    padding: 2% 3%;
   }
   @media (max-width: 700px) {
-    padding: 2% 5%;
+    padding: 2% 1em;
     grid-template-columns: 1fr;
   }
   @media (max-width: 500px) {
