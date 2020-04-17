@@ -40,60 +40,70 @@ function App() {
   };
   return (
     <Provider store={store}>
-      <Router>
-        {state && (
-          <Button
-            data-aos='zoom-in'
-            circular
-            icon='angle up'
-            style={style}
-            onClick={handleScrollUp}
-          />
-        )}
-        <NavBar state={state} />
-        <Wrapper>
-          <Switch>
-            <Route exact path='/'>
-              <Div>
-                <SideBar />
-                <ProductSection />
-              </Div>
-              <TrySomething />
-            </Route>
-            <Route exact path='/filtered/:ankara'>
-              <Div>
-                <SideBar />
-                <FilteredProducts />
-              </Div>
-            </Route>
-            <Route exact path='/men'>
-              <AllMen />
-            </Route>
-            <Route exact path='/women'>
-              <AllWomen />
-            </Route>
-            <Route exact path='/cart'>
-              <CartComponent />
-            </Route>
-            <Route exact path='/wishlist'>
-              <WishList />
-            </Route>
-            <Route exact path='/single/:singleId'>
-              <SingleProduct />
-            </Route>
-            <Route exact path='/show'>
-              <AddProducts />
-            </Route>
-          </Switch>
-        </Wrapper>
+      <Container>
+        <div>
+          <Router>
+            {state && (
+              <Button
+                data-aos='zoom-in'
+                circular
+                icon='angle up'
+                style={style}
+                onClick={handleScrollUp}
+              />
+            )}
+            <NavBar state={state} />
+            <Wrapper>
+              <Switch>
+                <Route exact path='/'>
+                  <Div>
+                    <SideBar />
+                    <ProductSection />
+                  </Div>
+                  <TrySomething />
+                </Route>
+                <Route exact path='/filtered/:ankara'>
+                  <Div>
+                    <SideBar />
+                    <FilteredProducts />
+                  </Div>
+                </Route>
+                <Route exact path='/men'>
+                  <AllMen />
+                </Route>
+                <Route exact path='/women'>
+                  <AllWomen />
+                </Route>
+                <Route exact path='/cart'>
+                  <CartComponent />
+                </Route>
+                <Route exact path='/wishlist'>
+                  <WishList />
+                </Route>
+                <Route exact path='/single/:singleId'>
+                  <SingleProduct />
+                </Route>
+                <Route exact path='/show'>
+                  <AddProducts />
+                </Route>
+              </Switch>
+            </Wrapper>
+          </Router>
+        </div>
         <FooterComponent />
-      </Router>
+      </Container>
     </Provider>
   );
 }
 
 export default App;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+`;
 const Wrapper = styled.div`
   padding-top: 10vh;
 `;
