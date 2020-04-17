@@ -7,16 +7,17 @@ export const SingleView = styled.div`
     padding: 5% 5%;
   }
   @media (max-width: 700px) {
-    padding: 5% 5%;
+    padding: 5% 1em;
 
-    .second-section-card {
-      grid-template-columns: 1fr;
+    .images {
+      width: 416px;
+      margin: 0;
     }
   }
 
   .images {
-    height: 20vh;
-    width: 70%;
+    height: 25vh;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 5px;
@@ -25,7 +26,7 @@ export const SingleView = styled.div`
 
     div {
       min-width: 100%;
-      height: 20vh;
+      min-height: 100%;
       overflow: hidden;
       cursor: pointer;
       position: relative;
@@ -43,6 +44,17 @@ export const SingleView = styled.div`
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-gap: 20px;
+
+    @media (max-width: 1100px) {
+      padding: 5% 5%;
+    }
+    @media (max-width: 700px) {
+      padding: 5% 1em;
+      grid-template-columns: 1fr;
+
+      .second-section-card {
+      }
+    }
 
     .second-section-image {
       width: 100%;
@@ -118,6 +130,6 @@ export const Div = styled.div`
   padding: 5% 10%;
 
   @media (max-width: 700px) {
-    padding: 3%;
+    padding: 3% 1em;
   }
 `;
