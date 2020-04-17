@@ -4,8 +4,8 @@ export const Container = styled.div`
   background: whitesmoke;
   width: 100%;
   position: fixed;
-  z-index: 78;
-  max-height: 8vh;
+  z-index: 189;
+  max-height: 10vh;
   min-height: 8vh;
 
   .mobile {
@@ -112,7 +112,7 @@ export const Logo = styled.div`
     color: orangered;
 
     h2 {
-      font-size: 2.5em;
+      font-size: 2em;
     }
   }
 `;

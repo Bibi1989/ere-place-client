@@ -95,7 +95,7 @@ function App() {
 export default App;
 
 const Wrapper = styled.div`
-  padding-top: 8vh;
+  padding-top: 10vh;
 `;
 
 const Div = styled.div`
