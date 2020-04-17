@@ -1,99 +1,143 @@
 import styled from "styled-components";
 
-export const Nav = styled.nav`
-  background: #fff;
-  /* background-color: #010024; */
-  height: 10vh;
+export const Container = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10%;
-  box-shadow: 0px 2px 25px #ddd;
-  top: 0;
-  z-index: 30;
+  background: whitesmoke;
+  position: fixed;
+  z-index: 78;
 
-  @media (max-width: 1100px) {
-    justify-content: space-evenly;
-    padding: 0 2%;
+  .mobile {
+    position: fixed;
+    left: -73%;
+    width: 70%;
+    z-index: 100;
+    transition: all 0.9s ease-in-out;
+
+    h1 {
+      position: absolute;
+      right: 16px;
+      top: 20px;
+      font-size: 5em;
+      color: white;
+    }
+  }
+
+  .showbar {
+    left: 0;
+  }
+`;
+
+export const Nav = styled.nav`
+  max-width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 20% 70% 10%;
+  border-bottom: 0.5px solid #eee;
+  top: 0;
+
+  @media (max-width: 800px) {
+    max-width: 90%;
   }
   @media (max-width: 700px) {
-    padding: 0 2%;
-
-    input {
-      font-size: 1.3rem;
-      /* border: 0.3px solid #ccc; */
-      box-shadow: 0;
-      outline: none;
-    }
-
-    .nav-cart {
-      position: absolute;
-      top: 10vh;
-      left: 0;
-      right: 0;
-      flex-direction: column;
-      background-color: #010024;
-      padding: 3% 10%;
-      width: 100%;
-      z-index: 20;
-
-      .login,
-      .register,
-      .wish {
-        margin: 10px 0;
-      }
-
-      .wish {
-        width: 60px;
-        display: flex;
-        justify-content: center;
-      }
-    }
+    grid-template-columns: 50% 30% 20%;
+    max-width: 96%;
+    padding: 1.2em 0;
   }
+`;
 
-  .nav-logo {
-    color: gold;
-  }
+export const Navlist = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.2em 0;
 
-  .nav-list {
-    input {
-      font-size: 1.3rem;
-      outline: none;
-    }
-  }
+  @media (max-width: 700px) {
+    display: none;
 
-  .nav-cart {
-    display: flex;
-    align-self: center;
-
-    button {
-      background: #fff;
-      border: 0.5px solid #ddd;
-      margin: 0;
-    }
-    /* .login {
-      color: cyan;
-      font-size: 1.3rem;
-      box-shadow: 0 2px 15px #eee;
-      /* background: orange; */
-  }
-  .login,
-  .register {
-    color: #555;
-    font-size: 1.2rem;
-    box-shadow: 0 2px 15px #eee;
-    /* background: orange; */
-
-    .links {
+    .link {
       text-decoration: none;
-      color: #eee;
+      color: orangered;
+
+      h2 {
+        font-size: 1.5em;
+      }
     }
+  }
+`;
+export const Button = styled.button`
+  padding: 0 1.5em;
+  margin-left: 1em;
+  outline: none;
+  border: 1px solid #999;
+  background: transparent;
+  color: #555;
+  border-radius: 0.3em;
+  cursor: pointer;
+`;
+export const Cart = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .shopping {
+    position: relative;
 
     sup {
-      color: #eee;
-      font-size: 1.2rem;
-      padding-left: 0.5rem;
+      position: absolute;
+      top: -5%;
+      left: 90%;
+      font-size: 1.5em;
+    }
+  }
+
+  .cart,
+  .heart {
+    font-size: 1.7em;
+  }
+
+  .cart {
+    color: orangered;
+  }
+  .heart {
+    color: teal;
+  }
+`;
+
+export const Logo = styled.div`
+  display: flex;
+  align-items: center;
+
+  .link {
+    text-decoration: none;
+    color: orangered;
+
+    h2 {
+      font-size: 2.5em;
+    }
+  }
+`;
+
+export const BurgerMenu = styled.div`
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  div {
+    width: 45px;
+    height: 5px;
+    margin: 5px;
+    background: #555;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 700px) {
+    display: flex;
+
+    .link {
+      text-decoration: none;
+      color: orangered;
+
+      h2 {
+        font-size: 1.5em;
+      }
     }
   }
 `;

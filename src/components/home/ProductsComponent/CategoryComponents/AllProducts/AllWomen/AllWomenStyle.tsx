@@ -4,6 +4,18 @@ export const Div = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2% 10%;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10% 5% 10% 5%;
+    grid-gap: 3%;
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 10% 0em 0 0em;
+  }
+
   h1 {
     font-size: 2.5rem;
     color: #555;
@@ -50,12 +62,12 @@ export const Product = styled.div`
 
   @media (max-width: 1100px) {
     grid-template-columns: repeat(2, 1fr);
-    padding: 10% 0% 10% 10%;
+    padding: 10% 0% 10% 0%;
     grid-gap: 3%;
   }
-  @media (max-width: 568px) {
+  @media (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
-    padding: 10% 10% 80% 15%;
+    padding: 10% 1.2em 80% 1.2em;
   }
 
   .second-section-card {

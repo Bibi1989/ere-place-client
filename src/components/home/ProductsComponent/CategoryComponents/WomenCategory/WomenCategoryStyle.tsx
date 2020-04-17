@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Div = styled.div`
   padding: 0% 15%;
 
-  @media (max-width: 600px) {
-    padding: 2% 5%;
+  @media (max-width: 700px) {
+    padding: 2% 1em;
   }
   h1 {
     font-size: 3rem;

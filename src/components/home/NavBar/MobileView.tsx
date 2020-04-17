@@ -6,21 +6,19 @@ import styled from "styled-components";
 const MobileView = ({ handleInput, wishlist, orderCount }: any) => {
   return (
     <Div className='nav-cart'>
-      <div className='nav-list'>
+      {/* <div className='nav-list'>
         <Input
           onChange={handleInput}
           icon='search'
           iconPosition='left'
           placeholder='Search...'
         />
-      </div>
+      </div> */}
       <Menu compact className='wish'>
         <Menu.Item>
           <Link className='links' to='/wishlist'>
             <Icon name='heart' size='large' color='teal' />
-            <Label color='orange' floating>
-              {JSON.parse(wishlist) === null ? 0 : JSON.parse(wishlist).length}
-            </Label>
+            <Label color='orange' floating></Label>
           </Link>
         </Menu.Item>
       </Menu>
@@ -30,7 +28,7 @@ const MobileView = ({ handleInput, wishlist, orderCount }: any) => {
             <Icon name='shopping bag' size='large' color='orange' />
             <Label color='orange' floating>
               {/* {JSON.parse(orders) === null ? 0 : JSON.parse(orders).length} */}
-              {orderCount}
+              {/* {orderCount} */}
             </Label>
           </Link>
         </Menu.Item>
@@ -43,4 +41,13 @@ const MobileView = ({ handleInput, wishlist, orderCount }: any) => {
 
 export default MobileView;
 
-const Div = styled.div``;
+const Div = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  background: orangered;
+  color: #fff;
+  min-height: 100vh;
+  align-items: flex-start;
+`;

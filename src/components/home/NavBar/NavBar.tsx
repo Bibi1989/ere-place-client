@@ -1,7 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Nav } from "./NavBarStyle";
+import {
+  Nav,
+  Button,
+  Cart,
+  Logo,
+  Navlist,
+  Container,
+  BurgerMenu,
+} from "./NavBarStyle";
 import { Link } from "react-router-dom";
-import { Menu, Icon, Label, Input, Button } from "semantic-ui-react";
+import { Menu, Icon, Input } from "semantic-ui-react";
 import { getOrders, searchItems } from "../../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
 import MobileView from "./MobileView";
@@ -32,7 +40,7 @@ const NavBar = ({ state }: any) => {
     ({ productReducer }: any) => productReducer.searchProducts
   );
   const wishlist: any = localStorage.getItem("wishlist");
-  console.log(searchP);
+  console.log(orderCount);
 
   const handleInput = (e: any) => {
     setSearchText(e.target.value);
@@ -44,67 +52,57 @@ const NavBar = ({ state }: any) => {
   }, [NoOfCarts, deleteCart, deleteWishList, searchText]);
 
   return (
-    <Nav style={state ? { position: "sticky" } : {}}>
-      <div className='nav-logo'>
-        <Link to='/'>
-          <h2>Ere Place</h2>
-        </Link>
+    <Container>
+      <div className={`mobile ${show && "showbar"}`}>
+        <h1
+          onClick={() => {
+            setShow(!show);
+          }}
+        >
+          &times;
+        </h1>
+        <MobileView />
       </div>
-      <Button onClick={() => setShow(!show)}>Menu</Button>
-      <div
-        className='nav-cart'
-        style={
-          show
-            ? { position: "absolute", transition: "left 0.7s ease-in-out" }
-            : {
-                position: "absolute",
-                left: "-100%",
-                transition: "left 0.7s ease-in-out"
-              }
-        }
-      >
-        {/* {show && (
-          <MobileView
-            handleInput={handleInput}
-            wishlist={wishlist}
-            orderCount={orderCount}
-          />
-        )} */}
-        <div className='nav-list'>
+      <Nav>
+        <Logo>
+          <Link to='/' className='link'>
+            <h2>Ere Place</h2>
+          </Link>
+        </Logo>
+        <Navlist className='nav-list'>
           <Input
             onChange={handleInput}
             icon='search'
             iconPosition='left'
             placeholder='Search...'
           />
-        </div>
-        <Menu compact className='wish'>
-          <Menu.Item>
-            <Link className='links' to='/wishlist'>
-              <Icon name='heart' size='large' color='teal' />
-              <Label color='orange' floating>
-                {JSON.parse(wishlist) === null
-                  ? 0
-                  : JSON.parse(wishlist).length}
-              </Label>
+
+          <Button className='login'>Login</Button>
+          <Button className='register'>Register</Button>
+        </Navlist>
+        <Cart>
+          <div className='shopping'>
+            <Icon name='heart' className='heart' />
+            <sup>1</sup>
+          </div>
+          <div className='shopping'>
+            <Link to='/cart'>
+              <Icon name='add to cart' className='cart' />
+              <sup>{orderCount}</sup>
             </Link>
-          </Menu.Item>
-        </Menu>
-        <Menu compact style={{ margin: "0" }} className='wish'>
-          <Menu.Item>
-            <Link className='links' to='/cart'>
-              <Icon name='shopping bag' size='large' color='orange' />
-              <Label color='orange' floating>
-                {/* {JSON.parse(orders) === null ? 0 : JSON.parse(orders).length} */}
-                {orderCount}
-              </Label>
-            </Link>
-          </Menu.Item>
-        </Menu>
-        <Button className='login'>Login</Button>
-        <Button className='register'>Register</Button>
-      </div>
-    </Nav>
+          </div>
+        </Cart>
+        <BurgerMenu
+          onClick={() => {
+            setShow(!show);
+          }}
+        >
+          <div></div>
+          <div></div>
+          <div></div>
+        </BurgerMenu>
+      </Nav>
+    </Container>
   );
 };
 
