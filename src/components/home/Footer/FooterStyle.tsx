@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  margin-top: 0;
+  margin-top: 10%;
 
   .copy-right {
     background-color: #f2711c;

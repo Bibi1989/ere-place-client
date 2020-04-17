@@ -2,10 +2,17 @@ import styled from "styled-components";
 
 export const Div = styled.div`
   padding: 2% 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  @media (max-width: 600px) {
-    padding: 2% 5%;
+  @media (max-width: 1100px) {
+    padding: 2% 10% 2% 0;
   }
+  @media (max-width: 700px) {
+    padding: 2% 1em;
+  }
+
   h1 {
     font-size: 3rem;
     color: #555;
@@ -18,7 +25,6 @@ export const Div = styled.div`
     border-radius: 5px;
     cursor: pointer;
     display: block;
-    margin: 0 auto 5% auto;
     outline: 0;
 
     .links {

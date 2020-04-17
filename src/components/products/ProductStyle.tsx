@@ -20,7 +20,7 @@ export const Product = styled.div`
   }
   @media (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
-    padding: 10% 0px 80% 0px;
+    padding: 10% 0px 10% 0px;
   }
 
   .second-section-card {
