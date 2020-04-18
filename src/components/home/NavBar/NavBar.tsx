@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import {
   Nav,
-  Button,
+  // Button,
   Cart,
   Logo,
   Navlist,
@@ -9,7 +9,7 @@ import {
   BurgerMenu,
 } from "./NavBarStyle";
 import { Link } from "react-router-dom";
-import { Menu, Icon, Input } from "semantic-ui-react";
+import { Menu, Icon, Input, Button } from "semantic-ui-react";
 import { getOrders, searchItems } from "../../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
 import MobileView from "./MobileView";
@@ -54,13 +54,13 @@ const NavBar = ({ state }: any) => {
   return (
     <Container className={`${state && "sticky"}`}>
       <div className={`mobile ${show && "showbar"}`}>
-        <h1
+        {/* <h1
           onClick={() => {
             setShow(!show);
           }}
         >
           &times;
-        </h1>
+        </h1> */}
         <MobileView />
       </div>
       <Nav>
@@ -77,8 +77,18 @@ const NavBar = ({ state }: any) => {
             placeholder='Search...'
           />
 
-          <Button className='login'>Login</Button>
-          <Button className='register'>Register</Button>
+          <Button animated className='login'>
+            <Button.Content visible>Login</Button.Content>
+            <Button.Content hidden>
+              <Icon name='user' />
+            </Button.Content>
+          </Button>
+          <Button animated className='register'>
+            <Button.Content visible>Register</Button.Content>
+            <Button.Content hidden>
+              <Icon name='users' />
+            </Button.Content>
+          </Button>
         </Navlist>
         <Cart>
           <div className='shopping'>
@@ -98,6 +108,7 @@ const NavBar = ({ state }: any) => {
           onClick={() => {
             setShow(!show);
           }}
+          className={`${show && "close_icon"}`}
         >
           <div></div>
           <div></div>

@@ -2,39 +2,33 @@ import React from "react";
 import { Input, Menu, Icon, Label, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Logo } from "./NavBarStyle";
 
-const MobileView = ({ handleInput, wishlist, orderCount }: any) => {
+const MobileView = ({ handleInput }: any) => {
   return (
     <Div className='nav-cart'>
-      {/* <div className='nav-list'>
+      <Logo className='logo'>ERE FASHION</Logo>
+      <Button animated className='login'>
+        <Button.Content visible>Login</Button.Content>
+        <Button.Content hidden>
+          <Icon name='user' />
+        </Button.Content>
+      </Button>
+      <Button animated className='register'>
+        <Button.Content visible>Register</Button.Content>
+        <Button.Content hidden>
+          <Icon name='users' />
+        </Button.Content>
+      </Button>
+      <div className='nav-list'>
         <Input
           onChange={handleInput}
           icon='search'
           iconPosition='left'
           placeholder='Search...'
+          className='search'
         />
-      </div> */}
-      <Menu compact className='wish'>
-        <Menu.Item>
-          <Link className='links' to='/wishlist'>
-            <Icon name='heart' size='large' color='teal' />
-            <Label color='orange' floating></Label>
-          </Link>
-        </Menu.Item>
-      </Menu>
-      <Menu compact style={{ margin: "0" }} className='wish'>
-        <Menu.Item>
-          <Link className='links' to='/cart'>
-            <Icon name='shopping bag' size='large' color='orange' />
-            <Label color='orange' floating>
-              {/* {JSON.parse(orders) === null ? 0 : JSON.parse(orders).length} */}
-              {/* {orderCount} */}
-            </Label>
-          </Link>
-        </Menu.Item>
-      </Menu>
-      <Button className='login'>Login</Button>
-      <Button className='register'>Register</Button>
+      </div>
     </Div>
   );
 };
@@ -48,6 +42,18 @@ const Div = styled.div`
   padding: 1em;
   background: orangered;
   color: #fff;
-  min-height: 100vh;
+  min-height: 100%;
   align-items: flex-start;
+
+  .login,
+  .register,
+  .search,
+  .logo {
+    margin-bottom: 2em;
+  }
+
+  .logo {
+    font-size: 2.5em;
+    padding-top: 1em;
+  }
 `;

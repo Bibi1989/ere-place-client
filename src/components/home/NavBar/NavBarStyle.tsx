@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   background: white;
   width: 100%;
-  z-index: 189;
+  z-index: 100;
   /* max-height: 10vh;
   min-height: 8vh; */
 
@@ -15,9 +15,9 @@ export const Container = styled.div`
 
   .mobile {
     position: fixed;
-    left: -73%;
-    width: 70%;
-    z-index: 100;
+    top: -43%;
+    width: 100%;
+    z-index: 80;
     transition: all 0.9s ease-in-out;
 
     h1 {
@@ -30,7 +30,7 @@ export const Container = styled.div`
   }
 
   .showbar {
-    left: 0;
+    top: 10vh;
   }
 `;
 
@@ -39,14 +39,20 @@ export const Nav = styled.nav`
   margin: auto;
   display: grid;
   grid-template-columns: 20% 70% 10%;
+  position: relative;
+  z-index: 90;
+  background: white;
 
+  @media (max-width: 1100px) {
+    max-width: 90%;
+  }
   @media (max-width: 800px) {
     max-width: 90%;
   }
   @media (max-width: 700px) {
     grid-template-columns: 50% 30% 20%;
-    max-width: 96%;
-    padding: 1.5em 0;
+    max-width: 100%;
+    padding: 1.5em 1em;
   }
 `;
 
@@ -55,17 +61,20 @@ export const Navlist = styled.div`
   justify-content: flex-end;
   padding: 1.5em 0;
 
+  .register,
+  .login {
+    border-radius: 20px;
+    border: none;
+    margin-left: 1em;
+  }
+
   .register {
     background: orangered;
     color: white;
-    border-radius: 20px;
-    border: none;
   }
   .login {
     background: transparent;
     color: #333;
-    border-radius: 20px;
-    border: none;
   }
 
   @media (max-width: 700px) {
@@ -141,11 +150,26 @@ export const BurgerMenu = styled.div`
   align-items: flex-end;
 
   div {
-    width: 45px;
-    height: 5px;
+    width: 40px;
+    height: 4px;
     margin: 3px;
     background: #555;
     border-radius: 5px;
+    transition: all 0.7s ease-in-out;
+  }
+
+  &.close_icon {
+    div:nth-child(1) {
+      transform: rotate(45deg) translate(0, 350%);
+      background: orangered;
+    }
+    div:nth-child(2) {
+      opacity: 0;
+    }
+    div:nth-child(3) {
+      transform: rotate(-45deg) translate(0, -350%);
+      background: orangered;
+    }
   }
 
   @media (max-width: 700px) {

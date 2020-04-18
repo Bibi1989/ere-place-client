@@ -5,6 +5,14 @@ export const Side = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   padding: 2% 10%;
+
+  @media (max-width: 1100px) {
+    padding: 2% 5%;
+  }
+  @media (max-width: 700px) {
+    flex-direction: column;
+    padding: 2% 1em;
+  }
 `;
 
 export const Div = styled.div`
@@ -17,6 +25,7 @@ export const Div = styled.div`
 `;
 export const Label = styled.label`
   padding-right: 2em;
+  cursor: pointer;
   position: relative;
 
   &::after {
@@ -34,16 +43,21 @@ export const Label = styled.label`
 `;
 
 export const Lab = styled.div`
+  position: relative;
+
   input {
     display: none;
   }
 
   input:checked ~ .show {
-    display: block;
+    opacity: 1;
   }
 
   .show {
-    display: none;
+    opacity: 0;
     position: absolute;
+    top: 3em;
+    pointer-events: none;
+    z-index: 20;
   }
 `;
