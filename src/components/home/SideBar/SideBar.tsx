@@ -17,14 +17,16 @@ const SideBar = () => {
       <Lab>
         <input type='radio' name='lab' id='lab2' />
         <Label htmlFor='lab2'>Type Of Wear</Label>
+        <SideComponent2 show='show' />
       </Lab>
       <Lab>
         <input type='radio' name='lab' id='lab3' />
         <Label htmlFor='lab3'>Category wear</Label>
+        <SideComponent3 show='show' />
       </Lab>
       {/* 
-      <SideComponent2 />
-      <SideComponent3 /> */}
+      
+       */}
     </Side>
   );
 };

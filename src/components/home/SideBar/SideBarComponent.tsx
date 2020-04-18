@@ -45,49 +45,53 @@ export const SideComponent1 = ({ show }: any) => {
   );
 };
 
-export const SideComponent2 = () => {
+export const SideComponent2 = ({ show }: any) => {
   return (
-    <Menu pointing vertical>
-      <Div>
-        <Menu.Item as='h3' name='Type Of Wear' style={style} />
-      </Div>
-      <Div>
-        <Link to='/filtered/ankara' className='links'>
-          <Menu.Item name='Ankara Native' />
-        </Link>
-      </Div>
-      <Div>
-        <Link to='/filtered/senator' className='links'>
-          <Menu.Item name='Senator Wear' />
-        </Link>
-      </Div>
-      <Div>
-        <Link className='links' to='/filtered/orlando'>
-          <Menu.Item name='Orlando Native' />
-        </Link>
-      </Div>
-      <Div>
-        <Link className='links' to='/filtered/english'>
-          <Menu.Item name='English Wear' />
-        </Link>
-      </Div>
-    </Menu>
+    <div className={show}>
+      <Menu pointing vertical>
+        <Div>
+          <Menu.Item as='h3' name='Type Of Wear' style={style} />
+        </Div>
+        <Div>
+          <Link to='/filtered/ankara' className='links'>
+            <Menu.Item name='Ankara Native' />
+          </Link>
+        </Div>
+        <Div>
+          <Link to='/filtered/senator' className='links'>
+            <Menu.Item name='Senator Wear' />
+          </Link>
+        </Div>
+        <Div>
+          <Link className='links' to='/filtered/orlando'>
+            <Menu.Item name='Orlando Native' />
+          </Link>
+        </Div>
+        <Div>
+          <Link className='links' to='/filtered/english'>
+            <Menu.Item name='English Wear' />
+          </Link>
+        </Div>
+      </Menu>
+    </div>
   );
 };
 
-export const SideComponent3 = () => {
+export const SideComponent3 = ({ show }: any) => {
   return (
-    <Menu pointing vertical>
-      <Menu.Item as='h5' name='Browse Categories' />
-      <Div>
-        <Link className='links' to='/show'>
-          <Menu.Item name='English Wear' />
-        </Link>
-      </Div>
-      <Menu.Item name='men wear' />
-      <Menu.Item name='shoes' />
-      <Menu.Item name='bags' />
-    </Menu>
+    <div className={show}>
+      <Menu pointing vertical>
+        <Menu.Item as='h5' name='Browse Categories' />
+        <Div>
+          <Link className='links' to='/show'>
+            <Menu.Item name='English Wear' />
+          </Link>
+        </Div>
+        <Menu.Item name='men wear' />
+        <Menu.Item name='shoes' />
+        <Menu.Item name='bags' />
+      </Menu>
+    </div>
   );
 };
 
