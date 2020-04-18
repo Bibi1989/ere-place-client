@@ -7,7 +7,7 @@ export const Div = styled.div`
 
   @media (max-width: 1100px) {
     grid-template-columns: repeat(2, 1fr);
-    padding: 10% 5% 80% 5%;
+    padding: 10% 5% 5% 5%;
   }
 
   @media (max-width: 700px) {
