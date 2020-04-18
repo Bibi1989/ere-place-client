@@ -39,13 +39,22 @@ const Div = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1%;
   padding: 0 10%;
-  height: 400px;
+  max-height: 400px;
   position: relative;
 
-  @media (max-width: 656px) {
+  @media (max-width: 1100px) {
     grid-template-columns: 1fr;
-    height: 600px;
-    display: none;
+    min-height: 600px;
+    padding: 0 5%;
+    margin: 2% 0;
+
+    .text-section {
+      display: none;
+    }
+  }
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    min-height: 600px;
 
     .text-section {
       display: none;
@@ -62,12 +71,6 @@ const Div = styled.div`
     background-position: center;
     height: 400px;
     border-radius: 5px;
-    /* position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background: #22222286; */
 
     button {
       background: orangered;
@@ -88,14 +91,6 @@ const Div = styled.div`
   }
 
   .text-section {
-    /* background-image: linear-gradient(
-      to right top,
-      #051937,
-      #004d7a,
-      #008793,
-      #00bf72,
-      #a8eb12
-    ); */
     background-image: linear-gradient(
       to right top,
       #845ec2,
@@ -108,7 +103,8 @@ const Div = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 15%;
+    align-items: flex-start;
+    padding: 3% 15%;
 
     h1 {
       font-size: 2.5rem;
@@ -125,7 +121,6 @@ const Div = styled.div`
       border-radius: 5px;
       box-shadow: 0 2px 15px #22222286;
       outline: none;
-      width: 30%;
       cursor: pointer;
     }
   }
