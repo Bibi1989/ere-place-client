@@ -2,12 +2,13 @@ import React from "react";
 import {
   getProducts,
   addOrder,
-  addWishList
+  addWishList,
 } from "../../../../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Div } from "./MenCategoryStyle";
 import ProductComponent from "../../../../products/ProductComponent";
+import Loaders from "../../../../../Loader/Loader";
 
 const MenCategory = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,8 @@ const MenCategory = () => {
     addWishList(dispatch, product);
   };
 
+  if (products.length === 0) return <Loaders />;
+
   return (
     <Div>
       <ProductComponent
@@ -43,7 +46,6 @@ const MenCategory = () => {
         handleCart={handleCart}
         handleWishList={handleWishList}
       />
-      ;
       <button>
         <Link className='links' to='/men'>
           View More...

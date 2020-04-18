@@ -3,12 +3,13 @@ import { Icon } from "semantic-ui-react";
 import {
   getProducts,
   addOrder,
-  addWishList
+  addWishList,
 } from "../../../../../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Product, Div } from "./AllWomenStyle";
 import { Productss } from "../../../../../productReducer/interfaces";
+import Loaders from "../../../../../../Loader/Loader";
 
 const AllWomen = () => {
   const [state, setState] = React.useState();
@@ -28,15 +29,15 @@ const AllWomen = () => {
   );
 
   const handleSelect = (e: any) => {
-    const sortByDate = [...products]
+    const sortByDate: any = [...products]
       .filter((women: Productss) => women.category.toLowerCase() === "women")
       .reverse();
-    const sortByPriceLowHigh = [...products]
+    const sortByPriceLowHigh: any = [...products]
       .filter((women: Productss) => women.category.toLowerCase() === "women")
       .sort(
         (a: Productss, b: Productss) => parseInt(a.price) - parseInt(b.price)
       );
-    const sortByPriceHighLow = [...products]
+    const sortByPriceHighLow: any = [...products]
       .filter((women: any) => women.category.toLowerCase() === "women")
       .sort(
         (a: Productss, b: Productss) => parseInt(b.price) - parseInt(a.price)
@@ -63,6 +64,8 @@ const AllWomen = () => {
   const handleWishList = (pro: any) => {
     addWishList(dispatch, pro);
   };
+
+  if (products.length === 0) return <Loaders />;
 
   return (
     <Div>

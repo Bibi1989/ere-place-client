@@ -3,12 +3,13 @@ import { Icon } from "semantic-ui-react";
 import {
   getProducts,
   addOrder,
-  addWishList
+  addWishList,
 } from "../../../../../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Product, Div } from "./AllMenStyle";
 import { Productss } from "../../../../../productReducer/interfaces";
+import Loaders from "../../../../../../Loader/Loader";
 
 const AllMen = () => {
   const [state, setState] = React.useState();
@@ -29,15 +30,15 @@ const AllMen = () => {
   );
 
   const handleSelect = (e: any) => {
-    const sortByDate = [...products]
+    const sortByDate: any = [...products]
       .filter((men: Productss) => men.category.toLowerCase() === "men")
       .reverse();
-    const sortByPriceLowHigh = [...products]
+    const sortByPriceLowHigh: any = [...products]
       .filter((men: Productss) => men.category.toLowerCase() === "men")
       .sort(
         (a: Productss, b: Productss) => parseInt(a.price) - parseInt(b.price)
       );
-    const sortByPriceHighLow = [...products]
+    const sortByPriceHighLow: any = [...products]
       .filter((men: Productss) => men.category.toLowerCase() === "men")
       .sort(
         (a: Productss, b: Productss) => parseInt(b.price) - parseInt(a.price)
@@ -65,6 +66,8 @@ const AllMen = () => {
   const handleWishList = (product: any) => {
     addWishList(dispatch, product);
   };
+
+  if (products.length === 0) return <Loaders />;
 
   return (
     <Div>

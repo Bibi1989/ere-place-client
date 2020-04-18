@@ -2,12 +2,13 @@ import React from "react";
 import {
   getProducts,
   addOrder,
-  addWishList
+  addWishList,
 } from "../../../../productReducer/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Div } from "./WomenCategoryStyle";
 import ProductComponent from "../../../../products/ProductComponent";
+import Loaders from "../../../../../Loader/Loader";
 
 const WomenCategory = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,8 @@ const WomenCategory = () => {
   const handleWishList = (product: any) => {
     addWishList(dispatch, product);
   };
+
+  if (products.length === 0) return <Loaders />;
 
   return (
     <Div>

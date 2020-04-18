@@ -15,7 +15,7 @@ export const Container = styled.div`
 
   .mobile {
     position: fixed;
-    top: -43%;
+    top: -63%;
     width: 100%;
     z-index: 80;
     transition: all 0.9s ease-in-out;

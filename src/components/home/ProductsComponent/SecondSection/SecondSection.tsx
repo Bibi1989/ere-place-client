@@ -7,12 +7,18 @@ import {
 } from "../../../productReducer/actions";
 import ProductComponent from "../../../products/ProductComponent";
 import { Div } from "./SecondSectionStyle";
+import TrySomething from "../../TrySomething";
+import WomenCategory from "../CategoryComponents/WomenCategory/WomenCategory";
+import MenCategory from "../CategoryComponents/MenCategory/MenCategory";
+import Loader from "../../../../Loader/Loader";
 
 const SecondSection = () => {
   const dispatch = useDispatch();
   const [state, setState] = React.useState();
   React.useEffect(() => {
-    getProducts(dispatch);
+    setTimeout(() => {
+      getProducts(dispatch);
+    }, 500000);
     // eslint-disable-next-line
   }, []);
   let products =
@@ -58,6 +64,7 @@ const SecondSection = () => {
     addWishList(dispatch, pro);
   };
 
+  if (products.length === 0) return <Loader />;
   return (
     <Div className='second-section-mobile'>
       <div className='select'>
@@ -84,6 +91,7 @@ const SecondSection = () => {
           handleWishList={handleWishList}
         />
       )}
+      <TrySomething />
     </Div>
   );
 };

@@ -7,7 +7,7 @@ export const Div = styled.div`
   padding: 1em;
 
   @media (max-width: 700px) {
-    /* padding-bottom: 30%; */
+    padding-bottom: 45%;
   }
 
   .select {

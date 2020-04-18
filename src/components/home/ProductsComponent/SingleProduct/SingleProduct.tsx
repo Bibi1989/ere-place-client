@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
-import { SingleView, Div } from "./SingleProductStyle";
+import { SingleView, Div, Wrapper } from "./SingleProductStyle";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -10,6 +10,7 @@ import {
   addWishList,
 } from "../../../productReducer/actions";
 import ProductComponent from "../../../products/ProductComponent";
+import Loaders from "../../../../Loader/Loader";
 
 const SingleProduct = () => {
   const fashion: any = localStorage.getItem("fashion");
@@ -84,8 +85,10 @@ const SingleProduct = () => {
   const products = useSelector(
     ({ productReducer }: any) => productReducer.products
   ).slice(0, 12);
+
+  if (product === undefined) return <Loaders />;
   return (
-    <>
+    <Wrapper>
       <SingleView data-aos='fade-left'>
         <h1>{product !== undefined && product.title}</h1>
         <div className='second-section-card'>
@@ -208,7 +211,7 @@ const SingleProduct = () => {
           handleWishList={handleWishList}
         />
       </Div>
-    </>
+    </Wrapper>
   );
 };
 

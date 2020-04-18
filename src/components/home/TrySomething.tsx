@@ -40,6 +40,7 @@ const Div = styled.div`
   background-position: center;
   background-attachment: fixed;
   border-radius: 5px;
+  min-height: 500px;
 
   button {
     background: orangered;

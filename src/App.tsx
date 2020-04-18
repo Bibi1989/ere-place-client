@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 import { Provider } from "react-redux";
@@ -18,9 +18,14 @@ import WishList from "./components/wishlist/WishList";
 import FooterComponent from "./components/home/Footer/Footer";
 import FilteredProducts from "./components/filteredProducts/FilterdProducts";
 import FirstSection from "./components/home/ProductsComponent/FirstSection/FirstSection";
-import SecondSection from "./components/home/ProductsComponent/SecondSection/SecondSection";
+// import SecondSection from "./components/home/ProductsComponent/SecondSection/SecondSection";
 import MenCategory from "./components/home/ProductsComponent/CategoryComponents/MenCategory/MenCategory";
 import WomenCategory from "./components/home/ProductsComponent/CategoryComponents/WomenCategory/WomenCategory";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
+const SecondSection = lazy(() =>
+  import("./components/home/ProductsComponent/SecondSection/SecondSection")
+);
 
 function App() {
   const [state, setState] = useState(false);
@@ -62,10 +67,11 @@ function App() {
                 <Route exact path='/'>
                   <SideBar />
                   <FirstSection />
-                  <SecondSection />
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <SecondSection />
+                  </Suspense>
                   <MenCategory />
                   <WomenCategory />
-                  <TrySomething />
                 </Route>
                 <Route exact path='/filtered/:ankara'>
                   <Div>

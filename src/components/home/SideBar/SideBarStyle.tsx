@@ -51,6 +51,7 @@ export const Lab = styled.div`
 
   input:checked ~ .show {
     opacity: 1;
+    pointer-events: visible;
   }
 
   .show {

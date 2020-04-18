@@ -7,6 +7,7 @@ export const Image = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: 100%;
+    background-attachment: fixed;
     width: 100%;
     height: 80vh;
   }

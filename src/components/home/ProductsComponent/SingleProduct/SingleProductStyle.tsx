@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  @media (max-width: 700px) {
+    padding-bottom: 60%;
+  }
+`;
+
 export const SingleView = styled.div`
   padding: 5% 20%;
 

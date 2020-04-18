@@ -99,7 +99,7 @@ const NavBar = ({ state }: any) => {
           </div>
           <div className='shopping'>
             <Link to='/cart'>
-              <Icon name='add to cart' className='cart' />
+              <Icon name='shopping bag' className='cart' />
               <sup>{orderCount}</sup>
             </Link>
           </div>

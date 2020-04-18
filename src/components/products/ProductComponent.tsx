@@ -7,7 +7,7 @@ const ProductComponent = ({
   products,
   title,
   handleCart,
-  handleWishList
+  handleWishList,
 }: any) => {
   const [state, setState] = useState(false);
   return (
