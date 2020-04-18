@@ -110,12 +110,13 @@ const Div = styled.div`
   padding: 2% 10%;
   display: grid;
   grid-template-columns: 25% 75%;
+  min-height: 100%;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1100px) {
     padding: 2% 5%;
   }
   @media (max-width: 900px) {
-    padding: 2% 3%;
+    padding: 2%;
   }
   @media (max-width: 700px) {
     padding: 2% 1em;

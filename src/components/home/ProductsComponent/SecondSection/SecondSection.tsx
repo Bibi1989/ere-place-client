@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getProducts,
   addOrder,
-  addWishList
+  addWishList,
 } from "../../../productReducer/actions";
 import ProductComponent from "../../../products/ProductComponent";
 import { Div } from "./SecondSectionStyle";

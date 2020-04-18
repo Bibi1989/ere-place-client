@@ -90,5 +90,5 @@ export const SideComponent3 = () => {
 };
 
 const style = {
-  color: "orangered"
+  color: "orangered",
 };
