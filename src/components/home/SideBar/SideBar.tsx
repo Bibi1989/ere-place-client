@@ -1,5 +1,5 @@
 import React from "react";
-import { Side, Label } from "./SideBarStyle";
+import { Side, Label, Lab } from "./SideBarStyle";
 import {
   SideComponent1,
   SideComponent2,
@@ -9,19 +9,20 @@ import {
 const SideBar = () => {
   return (
     <Side>
-      <div>
-        <input type='radio' id='lab1' />
-        <Label>Browse Category</Label>
-      </div>
-      <div>
-        <input type='radio' id='lab2' />
-        <Label>Type Of Wear</Label>
-      </div>
-      <div>
-        <input type='radio' id='lab3' />
-        <Label>Category wear</Label>
-      </div>
-      {/* <SideComponent1 />
+      <Lab>
+        <input type='radio' name='lab' id='lab1' />
+        <Label htmlFor='lab1'>Browse Category</Label>
+        <SideComponent1 show='show' />
+      </Lab>
+      <Lab>
+        <input type='radio' name='lab' id='lab2' />
+        <Label htmlFor='lab2'>Type Of Wear</Label>
+      </Lab>
+      <Lab>
+        <input type='radio' name='lab' id='lab3' />
+        <Label htmlFor='lab3'>Category wear</Label>
+      </Lab>
+      {/* 
       <SideComponent2 />
       <SideComponent3 /> */}
     </Side>

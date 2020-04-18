@@ -3,43 +3,45 @@ import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { Div } from "./SideBarStyle";
 
-export const SideComponent1 = () => {
+export const SideComponent1 = ({ show }: any) => {
   return (
-    <Menu pointing vertical>
-      <Div>
-        <Menu.Item as='h3' name='Browse Categories' style={style} />
-      </Div>
-      <Div>
-        <Link to='/' className='links'>
-          <Menu.Item name='Home' />
-        </Link>
-      </Div>
-      <Div>
-        <Link to='/men' className='links'>
-          <Menu.Item name='Men wears' />
-        </Link>
-      </Div>
-      <Div>
-        <Link className='links' to='/women'>
-          <Menu.Item name='women wear' />
-        </Link>
-      </Div>
-      <Div>
-        <Link className='links' to='/'>
-          <Menu.Item name='Children wear' />
-        </Link>
-      </Div>
-      <Div>
-        <Link className='links' to='/'>
-          <Menu.Item name='Shoes' />
-        </Link>
-      </Div>
-      <Div>
-        <Link className='links' to='/'>
-          <Menu.Item name='Bags' />
-        </Link>
-      </Div>
-    </Menu>
+    <div className={show}>
+      <Menu pointing vertical>
+        <Div>
+          <Menu.Item as='h3' name='Browse Categories' style={style} />
+        </Div>
+        <Div>
+          <Link to='/' className='links'>
+            <Menu.Item name='Home' />
+          </Link>
+        </Div>
+        <Div>
+          <Link to='/men' className='links'>
+            <Menu.Item name='Men wears' />
+          </Link>
+        </Div>
+        <Div>
+          <Link className='links' to='/women'>
+            <Menu.Item name='women wear' />
+          </Link>
+        </Div>
+        <Div>
+          <Link className='links' to='/'>
+            <Menu.Item name='Children wear' />
+          </Link>
+        </Div>
+        <Div>
+          <Link className='links' to='/'>
+            <Menu.Item name='Shoes' />
+          </Link>
+        </Div>
+        <Div>
+          <Link className='links' to='/'>
+            <Menu.Item name='Bags' />
+          </Link>
+        </Div>
+      </Menu>
+    </div>
   );
 };
 

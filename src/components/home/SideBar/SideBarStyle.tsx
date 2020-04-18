@@ -19,17 +19,6 @@ export const Label = styled.label`
   padding-right: 2em;
   position: relative;
 
-  display: flex;
-
-  .tri {
-    /* background: orangered; */
-    width: 0;
-    height: 0;
-    border-top: 5px solid orangered;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-  }
-
   &::after {
     content: "";
     position: absolute;
@@ -41,5 +30,20 @@ export const Label = styled.label`
     border-top: 5px solid orangered;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
+  }
+`;
+
+export const Lab = styled.div`
+  input {
+    display: none;
+  }
+
+  input:checked ~ .show {
+    display: block;
+  }
+
+  .show {
+    display: none;
+    position: absolute;
   }
 `;
