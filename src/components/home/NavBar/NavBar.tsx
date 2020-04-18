@@ -40,7 +40,7 @@ const NavBar = ({ state }: any) => {
     ({ productReducer }: any) => productReducer.searchProducts
   );
   const wishlist: any = localStorage.getItem("wishlist");
-  console.log(orderCount);
+  // console.log(wishlist);
 
   const handleInput = (e: any) => {
     setSearchText(e.target.value);
@@ -52,7 +52,7 @@ const NavBar = ({ state }: any) => {
   }, [NoOfCarts, deleteCart, deleteWishList, searchText]);
 
   return (
-    <Container>
+    <Container className={`${state && "sticky"}`}>
       <div className={`mobile ${show && "showbar"}`}>
         <h1
           onClick={() => {
@@ -82,8 +82,10 @@ const NavBar = ({ state }: any) => {
         </Navlist>
         <Cart>
           <div className='shopping'>
-            <Icon name='heart' className='heart' />
-            <sup>1</sup>
+            <Link to='/wishlist'>
+              <Icon name='heart' className='heart' />
+              <sup>{JSON.parse(wishlist).length}</sup>
+            </Link>
           </div>
           <div className='shopping'>
             <Link to='/cart'>

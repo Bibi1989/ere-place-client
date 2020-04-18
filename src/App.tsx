@@ -104,9 +104,7 @@ const Container = styled.div`
   justify-content: space-between;
   min-height: 100vh;
 `;
-const Wrapper = styled.div`
-  padding-top: 10vh;
-`;
+const Wrapper = styled.div``;
 
 const Div = styled.div`
   padding: 2% 10%;

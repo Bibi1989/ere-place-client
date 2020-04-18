@@ -3,10 +3,13 @@ import styled from "styled-components";
 export const Container = styled.div`
   background: whitesmoke;
   width: 100%;
-  position: fixed;
   z-index: 189;
-  max-height: 10vh;
-  min-height: 8vh;
+  /* max-height: 10vh;
+  min-height: 8vh; */
+
+  &.sticky {
+    position: fixed;
+  }
 
   .mobile {
     position: fixed;
@@ -42,14 +45,14 @@ export const Nav = styled.nav`
   @media (max-width: 700px) {
     grid-template-columns: 50% 30% 20%;
     max-width: 96%;
-    padding: 1.2em 0;
+    padding: 1.5em 0;
   }
 `;
 
 export const Navlist = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 1.2em 0;
+  padding: 1.5em 0;
 
   @media (max-width: 700px) {
     display: none;
