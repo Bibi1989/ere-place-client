@@ -14,8 +14,8 @@ import {
 import axios from "axios";
 import { Products } from "./interfaces";
 
-// let url = `https://ere-place-api.herokuapp.com`;
-let url = `http://localhost:4000`;
+let url = `https://ere-place-api.herokuapp.com`;
+// let url = `http://localhost:4000`;
 const fashion_product: any = localStorage.getItem("fashion");
 const wishlist: any = localStorage.getItem("wishlist");
 let fashion_products = JSON.parse(fashion_product) || [];

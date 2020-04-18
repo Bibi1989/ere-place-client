@@ -4,6 +4,12 @@ export const Div = styled.div`
   padding: 2% 0;
   display: flex;
   flex-direction: column;
+  padding: 1em;
+
+  @media (max-width: 700px) {
+    /* padding-bottom: 30%; */
+  }
+
   .select {
     align-self: flex-end;
     color: #777;

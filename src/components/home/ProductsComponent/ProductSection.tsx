@@ -20,6 +20,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 10%;
+  padding: 3% 0;
 
   @media (max-width: 2000px) {
     grid-gap: 0%;

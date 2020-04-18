@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  padding: 5% 0 2% 0;
+  padding: 5% 0;
   h1 {
     text-align: center;
     padding: 1em 0;
@@ -14,7 +14,7 @@ export const Div = styled.div`
     padding: 5% 0% 5% 5%;
   }
   @media (max-width: 700px) {
-    padding: 5% 0 3% 0;
+    padding: 5% 0 25% 0;
   }
 `;
 

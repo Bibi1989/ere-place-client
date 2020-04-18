@@ -1,21 +1,17 @@
 import styled from "styled-components";
+const fashion_img = "../../../../../images/fashion3.jpg";
 
 export const Image = styled.div`
-  .first-section-image {
-    max-height: 70vh;
-    img {
-      width: 100%;
-      height: 100%;
-    }
+  div {
+    background: url(${fashion_img});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 100%;
+    width: 100%;
+    height: 80vh;
   }
 
-  @media (max-width: 660px) {
-    .first-section-image {
-      height: 40vh;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
+  @media (max-width: 700px) {
+    min-height: 40vh;
   }
 `;

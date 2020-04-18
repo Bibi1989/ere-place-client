@@ -17,6 +17,10 @@ import CartComponent from "./components/orders/CartComponent";
 import WishList from "./components/wishlist/WishList";
 import FooterComponent from "./components/home/Footer/Footer";
 import FilteredProducts from "./components/filteredProducts/FilterdProducts";
+import FirstSection from "./components/home/ProductsComponent/FirstSection/FirstSection";
+import SecondSection from "./components/home/ProductsComponent/SecondSection/SecondSection";
+import MenCategory from "./components/home/ProductsComponent/CategoryComponents/MenCategory/MenCategory";
+import WomenCategory from "./components/home/ProductsComponent/CategoryComponents/WomenCategory/WomenCategory";
 
 function App() {
   const [state, setState] = useState(false);
@@ -56,10 +60,11 @@ function App() {
             <Wrapper>
               <Switch>
                 <Route exact path='/'>
-                  <Div>
-                    <SideBar />
-                    <ProductSection />
-                  </Div>
+                  <SideBar />
+                  <FirstSection />
+                  <SecondSection />
+                  <MenCategory />
+                  <WomenCategory />
                   <TrySomething />
                 </Route>
                 <Route exact path='/filtered/:ankara'>
@@ -109,7 +114,7 @@ const Wrapper = styled.div``;
 const Div = styled.div`
   padding: 2% 10%;
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 1fr;
   min-height: 100%;
 
   @media (max-width: 1100px) {

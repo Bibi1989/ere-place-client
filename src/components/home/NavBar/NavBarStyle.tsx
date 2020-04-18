@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: whitesmoke;
+  background: white;
   width: 100%;
   z-index: 189;
   /* max-height: 10vh;
@@ -9,6 +9,8 @@ export const Container = styled.div`
 
   &.sticky {
     position: fixed;
+    background: rgba(255, 68, 0, 0.678);
+    border-bottom: 0.5px solid #eee;
   }
 
   .mobile {
@@ -37,7 +39,6 @@ export const Nav = styled.nav`
   margin: auto;
   display: grid;
   grid-template-columns: 20% 70% 10%;
-  border-bottom: 0.5px solid #eee;
 
   @media (max-width: 800px) {
     max-width: 90%;
@@ -53,6 +54,19 @@ export const Navlist = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 1.5em 0;
+
+  .register {
+    background: orangered;
+    color: white;
+    border-radius: 20px;
+    border: none;
+  }
+  .login {
+    background: transparent;
+    color: #333;
+    border-radius: 20px;
+    border: none;
+  }
 
   @media (max-width: 700px) {
     display: none;
