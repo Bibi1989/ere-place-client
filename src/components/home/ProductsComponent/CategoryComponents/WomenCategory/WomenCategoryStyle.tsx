@@ -7,7 +7,7 @@ export const Div = styled.div`
   align-items: center;
 
   @media (max-width: 1100px) {
-    padding: 2% 10% 2% 0;
+    padding: 2% 5% 2% 0;
   }
   @media (max-width: 700px) {
     padding: 2% 1em;

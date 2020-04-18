@@ -28,13 +28,13 @@ const SecondSection = () => {
   products = products.slice(0, 6);
 
   const handleSelect = (e: any) => {
-    const sorted = [...products].reverse();
+    const sorted: any = [...products].reverse();
     setState(sorted);
-    const sortByDate = [...products].reverse();
-    const sortByPriceLowHigh = [...products].sort(
+    const sortByDate: any = [...products].reverse();
+    const sortByPriceLowHigh: any = [...products].sort(
       (a: any, b: any) => parseInt(a.price) - parseInt(b.price)
     );
-    const sortByPriceHighLow = [...products].sort(
+    const sortByPriceHighLow: any = [...products].sort(
       (a: any, b: any) => parseInt(b.price) - parseInt(a.price)
     );
     if (e.target.value === "date") {

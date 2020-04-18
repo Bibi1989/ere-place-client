@@ -1,9 +1,20 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  padding: 0% 0;
+  padding: 5% 0 2% 0;
   h1 {
     text-align: center;
+    padding: 1em 0;
+  }
+
+  @media (max-width: 1300px) {
+    padding: 5% 0% 5% 5%;
+  }
+  @media (max-width: 1100px) {
+    padding: 5% 0% 5% 5%;
+  }
+  @media (max-width: 700px) {
+    padding: 5% 0 3% 0;
   }
 `;
 
@@ -11,16 +22,18 @@ export const Product = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5%;
-  padding: 3% 0% 5% 5%;
 
+  @media (max-width: 1300px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10% 0% 10% 0;
+    grid-gap: 3%;
+  }
   @media (max-width: 1100px) {
     grid-template-columns: repeat(2, 1fr);
-    padding: 10% 0% 10% 10%;
-    grid-gap: 3%;
+    grid-gap: 2%;
   }
   @media (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
-    padding: 10% 0px 10% 0px;
   }
 
   .second-section-card {
