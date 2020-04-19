@@ -47,20 +47,20 @@ const states: any = [
   "Sokoto",
   "Taraba",
   "Yobe",
-  "Zamfara"
-].map(state => {
+  "Zamfara",
+].map((state) => {
   return {
     key: state.slice(0, 3),
     text: state,
-    value: state
+    value: state,
   };
 });
 
-const sizes: any = [32, 34, 36, 38, 40, 42, 44, 46].map(size => {
+const sizes: any = [32, 34, 36, 38, 40, 42, 44, 46].map((size) => {
   return {
     key: size,
     text: size,
-    value: size
+    value: size,
   };
 });
 
@@ -73,13 +73,10 @@ const AddProducts = () => {
     category_type: "",
     description: "",
     price: "",
-    location: "",
-    stock: ""
+    stock: "",
   });
-  const [select, setSelect] = useState({
-    location: "",
-    size: ""
-  });
+  const [location, setLocation] = useState("");
+  const [size, setSize] = useState("");
   useEffect(() => {});
   let d: any = [];
   const hancha = (e: any) => {
@@ -90,43 +87,54 @@ const AddProducts = () => {
     axios
       .post(cloud_base_name, data, {
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
       })
-      .then(res => {
+      .then((res) => {
         d.concat(res.data.secure_url);
         setImageUrl([...imageUrl, res.data.secure_url]);
         setShowButton(true);
       })
-      .catch(err => console.log(err.response));
+      .catch((err) => console.log(err.response));
   };
   console.log({ d, imageUrl });
   const handleInput = (e: any) => {
     setForm({
       ...form,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSelect = (e: any) => {
-    setSelect({ ...select, location: e.target.textContent });
+  const handleLocation = (e: any) => {
+    setLocation(e.target.textContent);
   };
-  console.log(select);
+  const handleSize = (e: any) => {
+    setSize(e.target.textContent);
+  };
   const postProduct = async (body: any) => {
     await axios.post(`https://ere-place-api.herokuapp.com/api/products`, body, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZCI6ImE0MzRhNTkyLWNmZTgtNDczZC1hOGZlLTU5ZGE2N2FlOTU2ZCIsImZpcnN0X25hbWUiOiJCaWJpIiwibGFzdF9uYW1lIjoiQnJvIiwicGhvbmUiOiIxMjM0NTY3ODkwMSIsImVtYWlsIjoiYmliaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCR5UDVkWTcwT2YvLmkuZUx4eGhmZjN1N3d6WURZV1dtaU9tQkZldnBqUzlFSmlYZUtkNGZNbSIsInVzZXJfaW1hZ2UiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9iaWJpMTk4OTE2L2ltYWdlL3VwbG9hZC92MTU2NjI4NDc4Ny9zYW1wbGUuanBnIiwiaXNfc2VsbGVyIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMC0wMy0wMlQyMTo1Njo1NC41MzNaIn1dLCJpYXQiOjE1ODMxODYyMTR9.Xh2SCMuLa1nX1dCvu0M6yhncfq4_SauQdnYT4VPXSf0`
-      }
+        Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZCI6ImE0MzRhNTkyLWNmZTgtNDczZC1hOGZlLTU5ZGE2N2FlOTU2ZCIsImZpcnN0X25hbWUiOiJCaWJpIiwibGFzdF9uYW1lIjoiQnJvIiwicGhvbmUiOiIxMjM0NTY3ODkwMSIsImVtYWlsIjoiYmliaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCR5UDVkWTcwT2YvLmkuZUx4eGhmZjN1N3d6WURZV1dtaU9tQkZldnBqUzlFSmlYZUtkNGZNbSIsInVzZXJfaW1hZ2UiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9iaWJpMTk4OTE2L2ltYWdlL3VwbG9hZC92MTU2NjI4NDc4Ny9zYW1wbGUuanBnIiwiaXNfc2VsbGVyIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMC0wMy0wMlQyMTo1Njo1NC41MzNaIn1dLCJpYXQiOjE1ODMxODYyMTR9.Xh2SCMuLa1nX1dCvu0M6yhncfq4_SauQdnYT4VPXSf0`,
+      },
     });
   };
+  let test_image = JSON.stringify(imageUrl);
+  const test = {
+    ...form,
+    location,
+    size,
+    image_url: test_image,
+  };
+  console.log(test);
   const onsubmit = (e: any) => {
     e.preventDefault();
     let image = JSON.stringify(imageUrl);
     const data = {
       ...form,
-      ...select,
-      image_url: image
+      location,
+      size,
+      image_url: image,
     };
     postProduct(data);
   };
@@ -183,7 +191,8 @@ const AddProducts = () => {
       </form> */}
       <AddProductForm
         handleInput={handleInput}
-        handleSelect={handleSelect}
+        handleLocation={handleLocation}
+        handleSize={handleSize}
         hancha={hancha}
         imageUrl={imageUrl}
         showButton={showButton}
@@ -197,11 +206,12 @@ export default AddProducts;
 
 const AddProductForm = ({
   handleInput,
-  handleSelect,
+  handleSize,
+  handleLocation,
   hancha,
   imageUrl,
   showButton,
-  onsubmit
+  onsubmit,
 }: any) => (
   <Form onSubmit={onsubmit} style={{ padding: "3% 10%" }}>
     <Form.Group unstackable widths={2}>
@@ -243,7 +253,7 @@ const AddProductForm = ({
         name='location'
         label='Location'
         options={states}
-        onChange={handleSelect}
+        onChange={handleLocation}
       />
     </Form.Group>
     <Form.Group widths={2}>
@@ -253,7 +263,7 @@ const AddProductForm = ({
         placeholder='Stock'
         onChange={handleInput}
       />
-      <Form.Select label='Size' options={sizes} onChange={handleSelect} />
+      <Form.Select label='Size' options={sizes} onChange={handleSize} />
     </Form.Group>
     <Form.Group widths={2}>
       <Form.Input
