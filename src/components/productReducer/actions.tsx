@@ -81,7 +81,8 @@ export const addProducts = (dispatch: any, body: Products) => {
 
 export const getOrders = async (dispatch: any) => {
   const getProduct: any = localStorage.getItem("fashion");
-  const count: any = JSON.parse(getProduct).length;
+  const count: number =
+    JSON.parse(getProduct) !== null ? JSON.parse(getProduct).length : 0;
   const response = await axios.get(`${url}/api/orders`);
   dispatch({ type: GET_ORDERS, payload: count });
 };

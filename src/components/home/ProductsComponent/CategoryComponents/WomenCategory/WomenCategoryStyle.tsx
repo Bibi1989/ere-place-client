@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  padding: 2% 10%;
+  padding: 2% 0%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   @media (max-width: 1100px) {
-    padding: 2% 5% 2% 0;
+    padding: 2% 0% 2% 0;
   }
   @media (max-width: 700px) {
     padding: 2% 1em;

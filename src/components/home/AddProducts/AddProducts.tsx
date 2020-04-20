@@ -97,7 +97,7 @@ const AddProducts = () => {
       })
       .catch((err) => console.log(err.response));
   };
-  console.log({ d, imageUrl });
+
   const handleInput = (e: any) => {
     setForm({
       ...form,
@@ -111,6 +111,7 @@ const AddProducts = () => {
   const handleSize = (e: any) => {
     setSize(e.target.textContent);
   };
+
   const postProduct = async (body: any) => {
     await axios.post(`https://ere-place-api.herokuapp.com/api/products`, body, {
       headers: {
@@ -119,14 +120,7 @@ const AddProducts = () => {
       },
     });
   };
-  let test_image = JSON.stringify(imageUrl);
-  const test = {
-    ...form,
-    location,
-    size,
-    image_url: test_image,
-  };
-  console.log(test);
+
   const onsubmit = (e: any) => {
     e.preventDefault();
     let image = JSON.stringify(imageUrl);
@@ -141,54 +135,6 @@ const AddProducts = () => {
 
   return (
     <Div>
-      {/* <form onSubmit={onsubmit}>
-        <input
-          type='text'
-          name='title'
-          placeholder='title'
-          onChange={handleInput}
-        />
-        <input
-          type='text'
-          name='category'
-          placeholder='category'
-          onChange={handleInput}
-        />
-        <input
-          type='text'
-          name='category_type'
-          placeholder='category_type'
-          onChange={handleInput}
-        />
-        <input
-          type='text'
-          name='description'
-          placeholder='description'
-          onChange={handleInput}
-        />
-        <input
-          type='text'
-          name='price'
-          placeholder='price'
-          onChange={handleInput}
-        />
-        <input
-          type='text'
-          name='location'
-          placeholder='location'
-          onChange={handleInput}
-        />
-        <input
-          type='text'
-          name='stock'
-          placeholder='stock'
-          onChange={handleInput}
-        />
-        <input type='file' name='file' onChange={hancha} />
-        {imageUrl.length !== 0 && showButton && (
-          <button type='submit'>Submit</button>
-        )}
-      </form> */}
       <AddProductForm
         handleInput={handleInput}
         handleLocation={handleLocation}

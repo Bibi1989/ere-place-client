@@ -94,12 +94,16 @@ const NavBar = ({ state }: any) => {
           <div className='shopping'>
             <Link to='/wishlist'>
               <Icon name='heart' className='heart' />
-              <sup>{JSON.parse(wishlist).length}</sup>
+              <sup>
+                {JSON.parse(wishlist) === null
+                  ? 0
+                  : JSON.parse(wishlist).length}
+              </sup>
             </Link>
           </div>
           <div className='shopping'>
             <Link to='/cart'>
-              <Icon name='shopping bag' className='cart' />
+              <Icon name='shopping basket' className='cart' />
               <sup>{orderCount}</sup>
             </Link>
           </div>
