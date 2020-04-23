@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  padding: 5% calc(10% - 1em);
+  padding: 5% calc(15% - 1em);
   h1 {
     text-align: center;
     padding: 0;
@@ -41,8 +41,8 @@ export const Product = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-height: 350px;
-    min-width: 350px;
+    height: 450px;
+    /* min-width: 300px; */
     color: #777;
     overflow: hidden;
     border-radius: 40px 0 1px 0;
@@ -52,6 +52,7 @@ export const Product = styled.div`
       display: flex;
       flex-direction: column;
       width: 100%;
+      /* height: 100%; */
       padding: 10px;
       border: 0.6px solid #ddd;
       border-radius: 0px 0 40px 1px;
@@ -68,7 +69,7 @@ export const Product = styled.div`
     }
 
     .second-section-image {
-      /* max-height: 300px; */
+      height: 450px;
       width: 100%;
       position: relative;
       border: 1px solid #ddd;
@@ -78,7 +79,7 @@ export const Product = styled.div`
       transition: all 0.7s ease-in;
       img {
         width: 100%;
-        min-height: 250px;
+        min-height: 100%;
       }
       .second-section-overlay {
         position: absolute;
